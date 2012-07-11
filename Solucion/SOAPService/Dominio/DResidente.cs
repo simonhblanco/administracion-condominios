@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SOAPService.Dominio
 {
-    public class Residente
+    public class DResidente
     {
         private String _DNI;
         private String _Nombres;
