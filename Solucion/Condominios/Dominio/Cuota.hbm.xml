@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Condominios"
+                   namespace="Condominios.Dominio"
+                   default-lazy="false">
+  <class name="Cuota" table="CUOTA">
+    <id name="IdCuota" column="idcuota">
+      <generator class="increment" />
+    </id>
+    <property name="Mes" column="mes" />
+    <property name="Anio" column="anio" />
+    <property name="Importe" column="importe" />
+    <property name="FechaVencimiento" column="fechavencimiento" />
+    <many-to-one name="Vivienda" column="numvivienda" />
+    <property name="Estado" column="estado" />
+  </class>
+</hibernate-mapping>

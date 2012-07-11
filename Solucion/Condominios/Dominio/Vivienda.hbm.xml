@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Condominios"
+                   namespace="Condominios.Dominio"
+                   default-lazy="false">
+  <class name="Vivienda" table="VIVIENDA">
+    <id name="NumVivienda" column="numvivienda">
+      <generator class="increment" />
+    </id>
+    <many-to-one name="Residente" column="dni" />
+    <property name="Ubicacion" column="ubicacion" />
+    <property name="Numero" column="numero" />
+    <property name="Metraje" column="metraje" />
+    <property name="Tipo" column="tipo" />
+  </class>
+</hibernate-mapping>
