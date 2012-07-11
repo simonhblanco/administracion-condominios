@@ -9,7 +9,7 @@
   <!--Con la etiqueta "class" se realiza el mapeo de la clase en donde:
 		name señala el objeto o clase
 		table señala la tabla a mapear-->
-  <class name="Residente" table="RESIDENTE">
+  <class name="DResidente" table="RESIDENTE">
     <!--Con la etiqueta "id" señala que campo u atributo es llave primaria en donde:
 			name señala el atributo
 			column señala el campo-->
