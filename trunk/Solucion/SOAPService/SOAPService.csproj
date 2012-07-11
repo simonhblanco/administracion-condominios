@@ -74,7 +74,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\Residente.cs" />
+    <Compile Include="Dominio\DResidente.cs" />
     <Compile Include="IResidente.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using SOAPService.Dominio;
 
 namespace SOAPService
 {
@@ -12,7 +13,6 @@ namespace SOAPService
     public interface IResidente
     {
         [OperationContract]
-        Residente CrearResidente(Residente residente);
-
+        DResidente CrearResidente(DResidente residente);
     }
 }
