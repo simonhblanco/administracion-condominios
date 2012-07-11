@@ -3,10 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condominios", "Condominios\Condominios.csproj", "{95AE0B5E-BE36-4098-9192-8C8B632E9F92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPService", "SOAPService\SOAPService.csproj", "{E893B4FF-2955-4334-8AF1-5C984D23CFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestServicios", "TestServicios\TestServicios.csproj", "{64C05EBD-8642-43B3-9DE4-AB4AD966F9E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E17F029C-19DB-41B6-80DF-185ADF1AF7AD}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Solucion.vsmdi = Solucion.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
 		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Solucion.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +31,14 @@ Global
 		{95AE0B5E-BE36-4098-9192-8C8B632E9F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95AE0B5E-BE36-4098-9192-8C8B632E9F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95AE0B5E-BE36-4098-9192-8C8B632E9F92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E893B4FF-2955-4334-8AF1-5C984D23CFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E893B4FF-2955-4334-8AF1-5C984D23CFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E893B4FF-2955-4334-8AF1-5C984D23CFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E893B4FF-2955-4334-8AF1-5C984D23CFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C05EBD-8642-43B3-9DE4-AB4AD966F9E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C05EBD-8642-43B3-9DE4-AB4AD966F9E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C05EBD-8642-43B3-9DE4-AB4AD966F9E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C05EBD-8642-43B3-9DE4-AB4AD966F9E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
