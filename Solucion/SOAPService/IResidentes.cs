@@ -8,11 +8,11 @@ using SOAPService.Dominio;
 
 namespace SOAPService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IResidente" in both code and config file together.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IResidentes" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IResidente
+    public interface IResidentes
     {
         [OperationContract]
-        DResidente CrearResidente(DResidente residente);
+        DResidente CrearResidente(DResidente dresidente);
     }
 }

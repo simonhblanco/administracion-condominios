@@ -8,27 +8,27 @@ using NHibernate.Criterion;
 
 namespace SOAPService.Persistencia
 {
-    public class ResidenteDAO : BaseDAO<Residente, String>
+    public class ResidenteDAO : BaseDAO<DResidente, String>
     {
-        public ICollection<Residente> ListarTodosLosResidentes()
+        public ICollection<DResidente> ListarTodosLosResidentes()
         {
             using (ISession sesion = NHibernateHelper.AbrirSesion())
             {
-                ICollection<Residente> resultado = sesion
-                        .CreateCriteria(typeof(Residente))
-                        .List<Residente>();
+                ICollection<DResidente> resultado = sesion
+                        .CreateCriteria(typeof(DResidente))
+                        .List<DResidente>();
                 return resultado;
             }
         }
 
-        public ICollection<Residente> BuscarCorreo(String correo)
+        public ICollection<DResidente> BuscarCorreo(String correo)
         {
             using (ISession sesion = NHibernateHelper.AbrirSesion())
             {
-                ICollection<Residente> resultado = sesion
-                        .CreateCriteria(typeof(Residente))
+                ICollection<DResidente> resultado = sesion
+                        .CreateCriteria(typeof(DResidente))
                         .Add(Restrictions.Eq("Correo", correo))
-                        .List<Residente>();
+                        .List<DResidente>();
                 return resultado;
             }
         }
