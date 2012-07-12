@@ -18,9 +18,15 @@ namespace SOAPService.Persistencia
                 if (_FabricaDeSesiones == null)
                 {
                     var configuration = new Configuration();
-                    // Primero le indicamos el archivo xml que contendrá la cadena y datos de conexión a BD
-                    configuration.Configure(typeof(NHibernateHelper).Assembly, "Condominios.Persistencia.nhibernate.cfg.xml");
-                    // Segundo, le indicamos CÓMO va a buscar los *.hbm.xml
+
+                    configuration.SetProperty("connection.provider", "NHibernate.Connection.DriverConnectionProvider");
+                    configuration.SetProperty("connection.driver_class", "NHibernate.Driver.SqlClientDriver");
+                    configuration.SetProperty("connection.connection_string",ConexionUtil.ObtenerCadena());
+                    configuration.SetProperty("adonet.batch_size", "10");
+                    configuration.SetProperty("show_sql","true");
+                    configuration.SetProperty("dialect", "NHibernate.Dialect.MsSql2000Dialect");
+		            configuration.SetProperty("command_timeout","60");
+                    configuration.SetProperty("query.substitutions", "true 1, false 0, yes 'Y', no 'N'");
                     configuration.AddAssembly(typeof(NHibernateHelper).Assembly);
                     // Construir la fábrica de conexiones
                     _FabricaDeSesiones = configuration.BuildSessionFactory();
@@ -28,10 +34,15 @@ namespace SOAPService.Persistencia
                 return _FabricaDeSesiones;
             }
         }
-
-        public static ISession AbrirSesion()
+        
+        public static ISession ObtenerSesion()
         {
             return FabricaDeSesiones.OpenSession();
+        }
+
+        public static void CerrarSesion()
+        {
+            _FabricaDeSesiones = null;
         }
     }
 }

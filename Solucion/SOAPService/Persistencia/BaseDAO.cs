@@ -10,12 +10,11 @@ namespace SOAPService.Persistencia
     {
         public Entidad Crear(Entidad entidad)
         {
-            using (ISession sesion = NHibernateHelper.AbrirSesion())
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
                 using (ITransaction transaccion = sesion.BeginTransaction())
                 {
                     sesion.Save(entidad);
-                    //transaccion.Commit();
                     sesion.Flush();
                 }
             }
@@ -24,7 +23,7 @@ namespace SOAPService.Persistencia
 
         public Entidad Obtener(Id id)
         {
-            using (ISession sesion = NHibernateHelper.AbrirSesion())
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
                 return sesion.Get<Entidad>(id);
             }
@@ -32,12 +31,11 @@ namespace SOAPService.Persistencia
 
         public Entidad Modificar(Entidad entidad)
         {
-            using (ISession sesion = NHibernateHelper.AbrirSesion())
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
                 using (ITransaction transaccion = sesion.BeginTransaction())
                 {
                     sesion.Update(entidad);
-                    //transaccion.Commit();
                     sesion.Flush();
                 }
             }
@@ -46,12 +44,11 @@ namespace SOAPService.Persistencia
 
         public void Eliminar(Entidad entidad)
         {
-            using (ISession sesion = NHibernateHelper.AbrirSesion())
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
                 using (ITransaction transaction = sesion.BeginTransaction())
                 {
                     sesion.Delete(entidad);
-                    //transaction.Commit();
                     sesion.Flush();
                 }
             }
