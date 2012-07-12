@@ -76,7 +76,7 @@ namespace SOAPService.Dominio
             get { return _Tipo; }
             set { _Tipo = value; }
         }
-                
+
         public String TipoDesc
         {
             get
