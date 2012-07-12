@@ -9,7 +9,6 @@ using SOAPService.Dominio;
 
 namespace SOAPService
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Residentes" en el código, en svc y en el archivo de configuración a la vez.
     public class Residentes : IResidentes
     {
         private ResidenteDAO residenteDAO = null;
@@ -38,7 +37,7 @@ namespace SOAPService
                 Tipo = dresidente.Tipo
             };
 
-            return residenteDAO.Crear(residenteACrear);
+            return ResidenteDAO.Crear(residenteACrear);
         }
     }
 }

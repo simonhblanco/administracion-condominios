@@ -12,7 +12,7 @@ namespace SOAPService.Persistencia
     {
         public ICollection<DResidente> ListarTodosLosResidentes()
         {
-            using (ISession sesion = NHibernateHelper.ObtenerSesion())
+            using (ISession sesion = NHibernateHelper.AbrirSesion())
             {
                 ICollection<DResidente> resultado = sesion
                         .CreateCriteria(typeof(DResidente))
@@ -23,7 +23,7 @@ namespace SOAPService.Persistencia
 
         public ICollection<DResidente> BuscarCorreo(String correo)
         {
-            using (ISession sesion = NHibernateHelper.ObtenerSesion())
+            using (ISession sesion = NHibernateHelper.AbrirSesion())
             {
                 ICollection<DResidente> resultado = sesion
                         .CreateCriteria(typeof(DResidente))
