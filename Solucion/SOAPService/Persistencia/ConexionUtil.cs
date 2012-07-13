@@ -9,7 +9,8 @@ namespace SOAPService.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=447587A2423/SQLEXPRESS;AttachDbFilename='D:/User/DValenzuela/UPC/04Ciclo/ DESARROLLO PARA ENTORNO WEB/CONDOMINIO.mdf';Integrated Security=True";
+            //return "Data Source=447587A2423/SQLEXPRESS;AttachDbFilename='D:/User/DValenzuela/UPC/04Ciclo/ DESARROLLO PARA ENTORNO WEB/CONDOMINIO.mdf';Integrated Security=True";
+            return "Data Source=ANDERCREMA;Initial Catalog=CONDOMINIO;User ID=sa;Password=***********";
         }
     }
 }
