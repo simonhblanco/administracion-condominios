@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dominio\DResidente.hbm.xml" />
-    <Content Include="Registrar.svc" />
     <Content Include="Residentes.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -80,10 +79,6 @@
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\ResidenteDAO.cs" />
-    <Compile Include="Registrar.svc.cs">
-      <DependentUpon>Registrar.svc</DependentUpon>
-    </Compile>
-    <Compile Include="ISRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Residentes.svc.cs">
       <DependentUpon>Residentes.svc</DependentUpon>
@@ -99,8 +94,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49140</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2012</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
