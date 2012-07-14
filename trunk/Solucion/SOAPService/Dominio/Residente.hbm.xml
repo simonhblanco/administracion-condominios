@@ -9,11 +9,11 @@
   <!--Con la etiqueta "class" se realiza el mapeo de la clase en donde:
 		name señala el objeto o clase
 		table señala la tabla a mapear-->
-  <class name="DResidente" table="RESIDENTE">
+  <class name="ResidenteEntidad" table="RESIDENTE">
     <!--Con la etiqueta "id" señala que campo u atributo es llave primaria en donde:
 			name señala el atributo
 			column señala el campo-->
-    <id name="DNI" column="dni">
+    <id name="Dni" column="dni">
       <!--Con la etiqueta "generator se determina como se procedera con el id si class tiene:
 				assigned es porque se realizara por código, se programara para generar el id
 				increment automaticamente crece el código
@@ -27,7 +27,7 @@
     <property name="Edad" column="edad" />
     <property name="Correo" column="correo" />
     <property name="Clave" column="clave" />
-    <property name="Tipo" column="tipo" />
+    <!--<property name="Tipo" column="tipo" />-->
   </class>
 </hibernate-mapping>
 

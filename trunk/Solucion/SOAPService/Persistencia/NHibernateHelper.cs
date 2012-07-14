@@ -27,7 +27,7 @@ namespace SOAPService.Persistencia
                     configuration.SetProperty("dialect", "NHibernate.Dialect.MsSql2000Dialect");
                     configuration.SetProperty("command_timeout", "60");
                     configuration.SetProperty("query.substitutions", "true 1, false 0, yes 'Y', no 'N'");
-                    configuration.SetProperty("proxyfactory.factory_class", "NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu");
+                    //configuration.SetProperty("proxyfactory.factory_class", "NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu");
                     configuration.AddAssembly(typeof(NHibernateHelper).Assembly);
                     _FabricaDeSesiones = configuration.BuildSessionFactory();
                 }

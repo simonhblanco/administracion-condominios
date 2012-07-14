@@ -13,6 +13,6 @@ namespace SOAPService
     public interface IResidentes
     {
         [OperationContract]
-        DResidente CrearResidente(DResidente dresidente);
+        ResidenteEntidad CrearResidente(ResidenteEntidad dresidente);
     }
 }
