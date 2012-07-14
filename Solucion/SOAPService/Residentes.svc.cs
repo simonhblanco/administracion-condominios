@@ -11,33 +11,33 @@ namespace SOAPService
 {
     public class Residentes : IResidentes
     {
-        private ResidenteDAO residenteDAO = null;
+        private ResidenteDAO residenteDAO = new ResidenteDAO();
 
-        private ResidenteDAO ResidenteDAO
+        //private ResidenteDAO ResidenteDAO
+        //{
+        //    get
+        //    {
+        //        if (residenteDAO == null)
+        //            residenteDAO = new ResidenteDAO();
+        //        return residenteDAO;
+        //    }
+        //}
+
+        public ResidenteEntidad CrearResidente(ResidenteEntidad dresidente)
         {
-            get
-            {
-                if (residenteDAO == null)
-                    residenteDAO = new ResidenteDAO();
-                return residenteDAO;
-            }
-        }
+            //DResidente residenteACrear = new DResidente()
+            //{
+            //    DNI = dresidente.DNI//,
+            //    //Nombres = dresidente.Nombres,
+            //    //ApellidoPaterno = dresidente.ApellidoMaterno,
+            //    //ApellidoMaterno = dresidente.ApellidoMaterno,
+            //    //Edad = dresidente.Edad,
+            //    //Correo = dresidente.Correo,
+            //    //Clave = dresidente.Clave,
+            //    //Tipo = dresidente.Tipo
+            //};
 
-        public DResidente CrearResidente(DResidente dresidente)
-        {
-            DResidente residenteACrear = new DResidente()
-            {
-                DNI = dresidente.DNI,
-                Nombres = dresidente.Nombres,
-                ApellidoPaterno = dresidente.ApellidoMaterno,
-                ApellidoMaterno = dresidente.ApellidoMaterno,
-                Edad = dresidente.Edad,
-                Correo = dresidente.Correo,
-                Clave = dresidente.Clave,
-                Tipo = dresidente.Tipo
-            };
-
-            return ResidenteDAO.Crear(residenteACrear);
+            return residenteDAO.Crear(dresidente);
         }
     }
 }
