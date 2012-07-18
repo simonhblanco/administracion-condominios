@@ -58,10 +58,10 @@ namespace Condominios.Controllers
                     residenteACrear.Tipo = (String)collection["Tipo"];
 
                     //RegistrarService.RegistrarResidente(residenteACrear);
-
+                    
                     SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
                     res.CrearResidente(residenteACrear);
-
+                    
                     return RedirectToAction("Index");
                 }
 
