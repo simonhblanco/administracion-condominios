@@ -39,5 +39,53 @@ namespace SOAPService
 
             return ResidenteDAO.Crear(residenteACrear);
         }
+        
+        public DResidente ModificarResidente(DResidente dresidente)
+        {
+            DResidente residenteAModificar = new DResidente()
+            {
+                DNI = dresidente.DNI,
+                Nombres = dresidente.Nombres,
+                ApellidoPaterno = dresidente.ApellidoMaterno,
+                ApellidoMaterno = dresidente.ApellidoMaterno,
+                Edad = dresidente.Edad,
+                Correo = dresidente.Correo,
+                Clave = dresidente.Clave,
+                Tipo = dresidente.Tipo
+            };
+
+            return ResidenteDAO.Modificar(residenteAModificar);
+        }
+
+        public DResidente EliminarResidente(DResidente dresidente)
+        {
+            DResidente residenteAEliminar = new DResidente()
+            {
+                DNI = dresidente.DNI,
+                Nombres = dresidente.Nombres,
+                ApellidoPaterno = dresidente.ApellidoMaterno,
+                ApellidoMaterno = dresidente.ApellidoMaterno,
+                Edad = dresidente.Edad,
+                Correo = dresidente.Correo,
+                Clave = dresidente.Clave,
+                Tipo = dresidente.Tipo
+            };
+            return ResidenteDAO.Eliminar(residenteAEliminar);
+        }
+        
+        public ICollection<DResidente> ListarTodosLosResidentes()
+        {
+            return ResidenteDAO.ListarTodosLosResidentes();
+        }
+
+        #region Miembros de IResidentes
+
+
+        public DResidente ObtenerResidente(string codigo)
+        {
+            return ResidenteDAO.Obtener(codigo);
+        }
+
+        #endregion
     }
 }

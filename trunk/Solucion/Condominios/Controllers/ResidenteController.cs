@@ -18,7 +18,9 @@ namespace Condominios.Controllers
         public ActionResult Index()
         {
             // Llamamos al negocio para resolver la funcionalidad y obtenemos el "modelo"
-            ICollection<Residente> modelo = RegistrarService.ListarTodosLosAlumnos();
+            //ICollection<Residente> modelo = RegistrarService.ListarTodosLosAlumnos();
+            SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+            ICollection<DResidente> modelo = res.ListarTodosLosResidentes();
 
             // Elegimos la vista a generar y le entregamos el modelo
             return View(modelo); // La vista se llama Index.aspx
@@ -27,7 +29,9 @@ namespace Condominios.Controllers
         // GET: /Residente/Details/5
         public ActionResult Details(String DNI)
         {
-            Residente modelo = RegistrarService.ObtenerResidente(DNI);
+            //Residente modelo = RegistrarService.ObtenerResidente(DNI);
+            SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+            DResidente modelo = res.ObtenerResidente(DNI);
 
             return View(modelo); //La vista se llama Details.aspx
         }
@@ -58,7 +62,6 @@ namespace Condominios.Controllers
                     residenteACrear.Tipo = (String)collection["Tipo"];
 
                     //RegistrarService.RegistrarResidente(residenteACrear);
-                    
                     SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
                     res.CrearResidente(residenteACrear);
                     
@@ -78,7 +81,9 @@ namespace Condominios.Controllers
         // GET: /Residente/Edit/5
         public ActionResult Edit(String DNI)
         {
-            Residente modelo = RegistrarService.ObtenerResidente(DNI);
+            //Residente modelo = RegistrarService.ObtenerResidente(DNI);
+            SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+            DResidente modelo = res.ObtenerResidente(DNI);
             return View(modelo);
         }
 
@@ -89,13 +94,17 @@ namespace Condominios.Controllers
             try
             {
                 // TODO: Add update logic here
-                Residente residenteAModificar = RegistrarService.ObtenerResidente(DNI);
+                //Residente residenteAModificar = RegistrarService.ObtenerResidente(DNI);
+                SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+                DResidente residenteAModificar = res.ObtenerResidente(DNI);
+
 
                 residenteAModificar.Nombres = (String)collection["Nombres"];
                 residenteAModificar.ApellidoPaterno = (String)collection["ApellidoPaterno"];
                 residenteAModificar.ApellidoMaterno = (String)collection["ApellidoMaterno"];
 
-                RegistrarService.ModificarResidente(residenteAModificar);
+                //RegistrarService.ModificarResidente(residenteAModificar);
+                res.ModificarResidente(residenteAModificar);
                 
                 return RedirectToAction("Index");
             }
@@ -108,7 +117,9 @@ namespace Condominios.Controllers
         // GET: /Residente/Delete/5
         public ActionResult Delete(String DNI)
         {
-            Residente modelo = RegistrarService.ObtenerResidente(DNI);
+            //Residente modelo = RegistrarService.ObtenerResidente(DNI);
+            SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+            DResidente modelo = res.ObtenerResidente(DNI);
             return View(modelo);
         }
 
@@ -119,8 +130,11 @@ namespace Condominios.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Residente residenteAEliminar = RegistrarService.ObtenerResidente(DNI);
-                RegistrarService.EliminarResidente(residenteAEliminar);
+                //Residente residenteAEliminar = RegistrarService.ObtenerResidente(DNI);
+                //RegistrarService.EliminarResidente(residenteAEliminar);
+                SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+                DResidente residenteAEliminar = res.ObtenerResidente(DNI);
+                res.EliminarResidente(residenteAEliminar);
  
                 return RedirectToAction("Index");
             }
