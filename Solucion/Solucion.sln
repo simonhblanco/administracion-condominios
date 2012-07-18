@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condominios", "Condominios\Condominios.csproj", "{95AE0B5E-BE36-4098-9192-8C8B632E9F92}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E893B4FF-2955-4334-8AF1-5C984D23CFEE} = {E893B4FF-2955-4334-8AF1-5C984D23CFEE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPService", "SOAPService\SOAPService.csproj", "{E893B4FF-2955-4334-8AF1-5C984D23CFEE}"
 EndProject
