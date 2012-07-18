@@ -9,6 +9,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPService", "SOAPService\SOAPService.csproj", "{E893B4FF-2955-4334-8AF1-5C984D23CFEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestServicios", "TestServicios\TestServicios.csproj", "{64C05EBD-8642-43B3-9DE4-AB4AD966F9E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E893B4FF-2955-4334-8AF1-5C984D23CFEE} = {E893B4FF-2955-4334-8AF1-5C984D23CFEE}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E17F029C-19DB-41B6-80DF-185ADF1AF7AD}"
 	ProjectSection(SolutionItems) = preProject
