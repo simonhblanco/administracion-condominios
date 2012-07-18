@@ -13,4 +13,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DResidente" nillable="true" type="tns:DResidente" />
+  <xs:complexType name="ArrayOfDResidente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DResidente" nillable="true" type="tns:DResidente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDResidente" nillable="true" type="tns:ArrayOfDResidente" />
 </xs:schema>

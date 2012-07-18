@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Condominios.Dominio.Residente>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Condominios.SRResidente.DResidente>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Lista de Residentes
@@ -34,7 +34,9 @@
             <td><%: item.ApellidoMaterno %></td>
             <td><%: item.Edad %></td>
             <td><%: item.Correo %></td>
-            <td><%: item.TipoDesc %></td>
+            <td><%: item.Tipo %></td>
+            <%--Pregunta al Profesor--%>
+            <%--<td><%: item.TipoDesc %></td>--%>
         </tr>
     
     <% } %>

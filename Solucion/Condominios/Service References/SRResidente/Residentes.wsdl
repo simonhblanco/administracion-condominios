@@ -13,16 +13,92 @@
   <wsdl:message name="IResidentes_CrearResidente_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearResidenteResponse" />
   </wsdl:message>
+  <wsdl:message name="IResidentes_ObtenerResidente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerResidente" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_ObtenerResidente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerResidenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_ModificarResidente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarResidente" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_ModificarResidente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarResidenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_EliminarResidente_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarResidente" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_EliminarResidente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarResidenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_ListarTodosLosResidentes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTodosLosResidentes" />
+  </wsdl:message>
+  <wsdl:message name="IResidentes_ListarTodosLosResidentes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTodosLosResidentesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IResidentes">
     <wsdl:operation name="CrearResidente">
       <wsdl:input wsaw:Action="http://tempuri.org/IResidentes/CrearResidente" message="tns:IResidentes_CrearResidente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IResidentes/CrearResidenteResponse" message="tns:IResidentes_CrearResidente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerResidente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResidentes/ObtenerResidente" message="tns:IResidentes_ObtenerResidente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResidentes/ObtenerResidenteResponse" message="tns:IResidentes_ObtenerResidente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarResidente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResidentes/ModificarResidente" message="tns:IResidentes_ModificarResidente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResidentes/ModificarResidenteResponse" message="tns:IResidentes_ModificarResidente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarResidente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResidentes/EliminarResidente" message="tns:IResidentes_EliminarResidente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResidentes/EliminarResidenteResponse" message="tns:IResidentes_EliminarResidente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTodosLosResidentes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResidentes/ListarTodosLosResidentes" message="tns:IResidentes_ListarTodosLosResidentes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResidentes/ListarTodosLosResidentesResponse" message="tns:IResidentes_ListarTodosLosResidentes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IResidentes" type="tns:IResidentes">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CrearResidente">
       <soap:operation soapAction="http://tempuri.org/IResidentes/CrearResidente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerResidente">
+      <soap:operation soapAction="http://tempuri.org/IResidentes/ObtenerResidente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarResidente">
+      <soap:operation soapAction="http://tempuri.org/IResidentes/ModificarResidente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarResidente">
+      <soap:operation soapAction="http://tempuri.org/IResidentes/EliminarResidente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTodosLosResidentes">
+      <soap:operation soapAction="http://tempuri.org/IResidentes/ListarTodosLosResidentes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
