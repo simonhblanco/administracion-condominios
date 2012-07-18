@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Condominios.Negocio;
 using Condominios.Dominio;
+using Condominios.SRResidente;
 
 namespace Condominios.Controllers
 {
@@ -46,7 +47,7 @@ namespace Condominios.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    Residente residenteACrear = new Residente();
+                    DResidente residenteACrear = new DResidente();
                     residenteACrear.DNI = (String)collection["DNI"];
                     residenteACrear.Nombres = (String)collection["Nombres"];
                     residenteACrear.ApellidoPaterno = (String)collection["ApellidoPaterno"];
@@ -56,7 +57,10 @@ namespace Condominios.Controllers
                     residenteACrear.Clave = (String)collection["Clave"];
                     residenteACrear.Tipo = (String)collection["Tipo"];
 
-                    RegistrarService.RegistrarResidente(residenteACrear);
+                    //RegistrarService.RegistrarResidente(residenteACrear);
+
+                    SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
+                    res.CrearResidente(residenteACrear);
 
                     return RedirectToAction("Index");
                 }
