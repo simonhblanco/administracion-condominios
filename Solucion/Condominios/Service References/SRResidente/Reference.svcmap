@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cca8f291-0d60-4b87-897f-0935b33d03e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b121bdb4-c330-45f9-ad52-5056a353b56a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,14 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2012/Residentes.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:20122/Residentes.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Residentes.wsdl" MetadataType="Wsdl" ID="ba677663-492e-481d-86de-6390102b2b45" SourceId="1" SourceUrl="http://localhost:2012/Residentes.svc?wsdl" />
-    <MetadataFile FileName="Residentes.disco" MetadataType="Disco" ID="f4b4de2e-6ce7-4109-8575-a4c54472824e" SourceId="1" SourceUrl="http://localhost:2012/Residentes.svc?disco" />
-    <MetadataFile FileName="Residentes.xsd" MetadataType="Schema" ID="6fde9fcd-1789-4096-8874-d88ffec9611d" SourceId="1" SourceUrl="http://localhost:2012/Residentes.svc?xsd=xsd2" />
-    <MetadataFile FileName="Residentes1.xsd" MetadataType="Schema" ID="bf3a7ef5-a984-4bb2-a69c-f4a0af174e1d" SourceId="1" SourceUrl="http://localhost:2012/Residentes.svc?xsd=xsd1" />
-    <MetadataFile FileName="Residentes2.xsd" MetadataType="Schema" ID="076dc41d-3d52-44d4-a148-5adc770e0f7a" SourceId="1" SourceUrl="http://localhost:2012/Residentes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Residentes.disco" MetadataType="Disco" ID="0c9ccd31-712d-4720-80fd-621bc2db00e5" SourceId="1" SourceUrl="http://localhost:20122/Residentes.svc?disco" />
+    <MetadataFile FileName="Residentes.xsd" MetadataType="Schema" ID="81c7c2ec-86ab-4ee7-a5ea-19f01c8e61b9" SourceId="1" SourceUrl="http://localhost:20122/Residentes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Residentes1.xsd" MetadataType="Schema" ID="f28cd90e-4064-4e5b-80cc-f23982bcc873" SourceId="1" SourceUrl="http://localhost:20122/Residentes.svc?xsd=xsd2" />
+    <MetadataFile FileName="Residentes.wsdl" MetadataType="Wsdl" ID="498281d5-9705-4fc8-9fb7-b997d404c518" SourceId="1" SourceUrl="http://localhost:20122/Residentes.svc?wsdl" />
+    <MetadataFile FileName="Residentes2.xsd" MetadataType="Schema" ID="0a2d2e11-b882-465c-ad85-7371a92be6a3" SourceId="1" SourceUrl="http://localhost:20122/Residentes.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
