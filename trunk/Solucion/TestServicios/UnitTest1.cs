@@ -43,6 +43,8 @@ namespace TestServicios
             });
             Assert.AreEqual(r.DNI, "12");
         }
+
+        [TestMethod]
         public void TestMethod3()
         {
             ResidenteDAO dao = new ResidenteDAO();
@@ -52,5 +54,15 @@ namespace TestServicios
             });
             Assert.AreEqual(r.DNI, "12");
         }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            ResidenteDAO dao = new ResidenteDAO();
+            ICollection<DResidente> LResidente = dao.ListarTodosLosResidentes();
+            Assert.IsNotNull(LResidente);
+            //Assert.Greater(LResidente.Count, 0);
+        }
+        
     }
 }
