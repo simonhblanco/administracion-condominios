@@ -90,6 +90,33 @@ namespace SOAPService.Persistencia
             }
             return Obtener(residente.DNI);
         }
+        public ICollection<DResidente> ListarTodosLosResidentes()
+        {
+            ICollection<DResidente> listaresidente = new List<DResidente>();
+            
+            String sentencia = "SELECT * FROM residente)";            
+            using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
+            {
+                conexion.Open();
+                using (SqlCommand comando = new SqlCommand(sentencia, conexion))
+                {
+                    SqlDataReader resultado = comando.ExecuteReader();
+                    DResidente residenteExistente = new DResidente();
+                    residenteExistente.DNI = (String)resultado["dni"];
+                    residenteExistente.ApellidoPaterno = (String)resultado["apellidopaterno"];
+                    residenteExistente.ApellidoMaterno = (String)resultado["apellidomaterno"];
+                    residenteExistente.Nombres = (String)resultado["nombres"];
+                    residenteExistente.Edad = (int)resultado["edad"];
+                    residenteExistente.Correo = (String)resultado["correo"];
+                    residenteExistente.Clave = (String)resultado["clave"];
+                    residenteExistente.Tipo = (String)resultado["tipo"];
+                    listaresidente.Add(residenteExistente);
+                }
+            }
+            return listaresidente;
+        }
+
+
 
         //public ICollection<DResidente> ListarTodosLosResidentes()
         //{
