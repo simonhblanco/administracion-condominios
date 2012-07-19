@@ -14,6 +14,7 @@ namespace TestServicios
         [TestMethod]
         public void TestMethod1()
         {
+      //metodo de prueba para la clase residente
             ResidenteDAO dao = new ResidenteDAO();
             DResidente r = dao.Crear(new DResidente() 
             { DNI = "12", 
