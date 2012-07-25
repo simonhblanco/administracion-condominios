@@ -61,6 +61,7 @@ namespace SOAPService
         {
             DResidente residenteAEliminar = new DResidente()
             {
+                // llave de búsqueda DNI 
                 DNI = dresidente.DNI,
                 Nombres = dresidente.Nombres,
                 ApellidoPaterno = dresidente.ApellidoMaterno,
