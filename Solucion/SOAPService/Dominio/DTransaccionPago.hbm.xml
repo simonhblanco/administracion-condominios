@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Se realiza el mapeo del Hibernate en donde:
+	assembly va el nombre del Proyecto
+	namespace lugar donde se encuentran las clases u objetos-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SOAPService"
+                   namespace="SOAPService.Dominio"
+                   default-lazy="false">
+  <!--Con la etiqueta "class" se realiza el mapeo de la clase en donde:
+		name señala el objeto o clase
+		table señala la tabla a mapear-->
+  <class name="DTRANSACCIONPAGO" table="TRANSACCIONPAGO">
+    <!--Con la etiqueta "id" señala que campo u atributo es llave primaria en donde:
+			name señala el atributo
+			column señala el campo-->
+    <id name="_IdTransaccionPago" column="idtransaccionpago">
+      <!--Con la etiqueta "generator se determina como se procedera con el id si class tiene:
+				assigned es porque se realizara por código, se programara para generar el id
+				increment automaticamente crece el código
+				guid "-->
+      <generator class="assigned" />
+    </id>
+    <!--Con la etiqueta "property" se señalan los demas atributos de la clase u objeto-->
+    <many-to-one name="DCuota" column="idcuota" />
+    <property name="_TipoPago" column="tipopago" />
+    <property name="_FechaOperacion" column="fechaoperacion" />
+     </class>
+</hibernate-mapping>
+
