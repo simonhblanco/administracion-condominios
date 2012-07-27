@@ -8,15 +8,15 @@ using SOAPService.Dominio;
 
 namespace SOAPService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IVivienda" in both code and config file together.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IViviendas" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IVivienda
+    public interface IViviendas
     {
         [OperationContract]
         DVivienda CrearVivienda(DVivienda dvivienda);
 
         [OperationContract]
-        DVivienda ObtenerVivienda(String codigo);
+        DVivienda ObtenerVivienda(int codigo);
 
         [OperationContract]
         DVivienda ModificarVivienda(DVivienda dvivienda);

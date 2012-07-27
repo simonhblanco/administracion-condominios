@@ -78,15 +78,11 @@ namespace SOAPService
         {
             return ResidenteDAO.ListarTodosLosResidentes();
         }
-
-        #region Miembros de IResidentes
-
-
+        
         public DResidente ObtenerResidente(string codigo)
         {
             return ResidenteDAO.Obtener(codigo);
         }
 
-        #endregion
     }
 }

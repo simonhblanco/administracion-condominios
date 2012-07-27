@@ -9,9 +9,9 @@ namespace SOAPService.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=VANESSA-HP\\SQLEXPRESS;Initial Catalog=CONDOMINIO;Integrated Security=True";
+            //return "Data Source=VANESSA-HP\\SQLEXPRESS;Initial Catalog=CONDOMINIO;Integrated Security=True";
             //return "Data Source=447587A2423\\SQLEXPRESS;Initial Catalog=CONDOMINIO;Integrated Security=True";
-            //return "Data Source=ANDERCREMA;Initial Catalog=CONDOMINIO;User ID=sa;Password=***********";
+            return "Data Source=ANDERCREMA;Initial Catalog=CONDOMINIO;User ID=sa;Password=crema2011";
             //base de datos
         }
     }
