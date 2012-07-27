@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using SOAPService.Dominio;
 
 namespace SOAPService
 {
@@ -12,6 +13,18 @@ namespace SOAPService
     public interface IVivienda
     {
         [OperationContract]
-        void DoWork();
+        DVivienda CrearVivienda(DVivienda dvivienda);
+
+        [OperationContract]
+        DVivienda ObtenerVivienda(String codigo);
+
+        [OperationContract]
+        DVivienda ModificarVivienda(DVivienda dvivienda);
+
+        [OperationContract]
+        DVivienda EliminarVivienda(DVivienda dvivienda);
+
+        [OperationContract]
+        ICollection<DVivienda> ListarTodasLasViviendas();  
     }
 }
