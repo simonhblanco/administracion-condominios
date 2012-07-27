@@ -50,24 +50,24 @@ namespace SOAPService.Persistencia
             return viviendaExistente;
         }
 
-        //public DVivienda Modificar(DVivienda vivienda)
-        //{
-        //    string sentencia = "update vivienda set ubicacion = @ubicacion, numero =  @numero, metraje = @metraje, tipo = @tipo where numvivienda = @numvivienda";
-        //    using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
-        //    {
-        //        conexion.Open();
-        //        using (SqlCommand comando = new SqlCommand(sentencia, conexion))
-        //        {
-        //            comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
-        //            comando.Parameters.Add(new SqlParameter("@numero", vivienda.Numero));
-        //            comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
-        //            comando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
-        //            comando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
-        //            comando.ExecuteNonQuery();
-        //        }
-        //    }
-        //    return Obtener(vivienda.NumVivienda);
-        //}
+        public DVivienda Modificar(DVivienda vivienda)
+        {
+            string sentencia = "update vivienda set ubicacion = @ubicacion, numero =  @numero, metraje = @metraje, tipo = @tipo where numvivienda = @numvivienda";
+            using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
+            {
+                conexion.Open();
+                using (SqlCommand comando = new SqlCommand(sentencia, conexion))
+                {
+                    comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
+                    comando.Parameters.Add(new SqlParameter("@numero", vivienda.Numero));
+                    comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
+                    comando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
+                    comando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
+                    comando.ExecuteNonQuery();
+                }
+            }
+            return Obtener(vivienda.NumVivienda);
+        }
 
         public DVivienda Eliminar(DVivienda vivienda)
         {
