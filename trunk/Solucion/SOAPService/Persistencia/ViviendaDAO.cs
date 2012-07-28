@@ -3,36 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SOAPService.Dominio;
+using NHibernate;
+using NHibernate.Criterion;
 using System.Data.SqlClient;
 
 namespace SOAPService.Persistencia
 {
-    public class ViviendaDAO : BaseDAO<DVivienda, Int32>
+    public class ViviendaDAO: BaseDAO<DVivienda, String>
     {
         public DVivienda Crear(DVivienda vivienda)
         {
-            string sentencia = "INSERT INTO vivienda (numvivienda, ubicacion, numero, metraje, tipo, dni) VALUES (@numvivienda,@ubicacion, @numero, @metraje, @tipo, @dni)";
+            string sentencia = "INSERT INTO vivienda(numvivienda, ubicacion, numero, metraje, tipo, dni) VALUES (@numvivienda, @ubicacion, @numero, @metraje, @tipo, @dni)";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
-                using (SqlCommand comando = new SqlCommand(sentencia, conexion))
+                using (SqlCommand commando = new SqlCommand(sentencia, conexion))
+
                 {
-                    comando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
-                    comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
-                    comando.Parameters.Add(new SqlParameter("@numero", vivienda.Numero));
-                    comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
-                    comando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@dni", vivienda.Residente.DNI));
-                    comando.ExecuteNonQuery();
+                    commando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
+                    commando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
+                    commando.Parameters.Add(new SqlParameter("@numero", vivienda.Numero));
+                    commando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
+                    commando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
+                    commando.Parameters.Add(new SqlParameter("@dni", vivienda.Residente.DNI));
+                    commando.ExecuteNonQuery();
                 }
             }
             return Obtener(vivienda.NumVivienda);
         }
 
-        public DVivienda Obtener(Int32 numvivienda)
+        public DVivienda Obtener(int numvivienda)
         {
             DVivienda viviendaExistente = null;
-            string sentencia = "SELECT * FROM vivienda WHERE numvivienda=@numvivienda";
+            string sentencia = "SELECT * FROM residente WHERE numvivienda=@numvivienda";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
@@ -43,28 +46,31 @@ namespace SOAPService.Persistencia
                     if (resultado.Read())
                     {
                         viviendaExistente = new DVivienda();
-                        viviendaExistente.NumVivienda = (Int32)resultado["numvivienda"];
+                        viviendaExistente.NumVivienda = (int)resultado["numvivienda"];
                     }
+
                 }
             }
+
             return viviendaExistente;
         }
 
         public DVivienda Modificar(DVivienda vivienda)
         {
-            string sentencia = "update vivienda set ubicacion = @ubicacion, numero =  @numero, metraje = @metraje, tipo = @tipo where numvivienda = @numvivienda";
+            string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
-                {
+                { 
+                    comando.Parameters.Add(new SqlParameter("numero", vivienda.Numero));
                     comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
-                    comando.Parameters.Add(new SqlParameter("@numero", vivienda.Numero));
                     comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
                     comando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
+                    comando.Parameters.Add(new SqlParameter("@dni", vivienda.Residente.DNI));
                     comando.ExecuteNonQuery();
                 }
+
             }
             return Obtener(vivienda.NumVivienda);
         }
@@ -84,13 +90,12 @@ namespace SOAPService.Persistencia
             return Obtener(vivienda.NumVivienda);
         }
 
-        public ICollection<DVivienda> ListarTodasLasViviendas()
+
+        public ICollection<DVivienda> ListarTodosLasViviendas()
         {
             ICollection<DVivienda> listavivienda = new List<DVivienda>();
-            ResidenteDAO residenteDao = new ResidenteDAO();
-            DResidente residente = new DResidente();
 
-            String sentencia = "SELECT * FROM VIVENDA";
+            String sentencia = "SELECT * FROM VIVIENDA";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
@@ -105,11 +110,9 @@ namespace SOAPService.Persistencia
                         viviendaExistente.Numero = (int)resultado["numero"];
                         viviendaExistente.Metraje = (int)resultado["metraje"];
                         viviendaExistente.Tipo = (String)resultado["tipo"];
-
-                        residente = residenteDao.Obtener((String)resultado["dni"]);
-
-                        viviendaExistente.Residente = residente;
+                        viviendaExistente.Residente.DNI = (String)resultado["dni"];
                         listavivienda.Add(viviendaExistente);
+                     
                     }
                 }
             }
@@ -117,3 +120,34 @@ namespace SOAPService.Persistencia
         }
     }
 }
+
+/*****  
+        public ICollection<DResidente> ListarTodosLosResidentes()
+        {
+            ICollection<DResidente> listaresidente = new List<DResidente>();
+
+            String sentencia = "SELECT * FROM RESIDENTE";
+            using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
+            {
+                conexion.Open();
+                using (SqlCommand comando = new SqlCommand(sentencia, conexion))
+                {
+                    SqlDataReader resultado = comando.ExecuteReader();
+                    while (resultado.Read())
+                    {
+                        DResidente residenteExistente = new DResidente();
+                        residenteExistente.DNI = (String)resultado["dni"];
+                        residenteExistente.ApellidoPaterno = (String)resultado["apellidopaterno"];
+                        residenteExistente.ApellidoMaterno = (String)resultado["apellidomaterno"];
+                        residenteExistente.Nombres = (String)resultado["nombres"];
+                        residenteExistente.Edad = (int)resultado["edad"];
+                        residenteExistente.Correo = (String)resultado["correo"];
+                        residenteExistente.Clave = (String)resultado["clave"];
+                        residenteExistente.Tipo = (String)resultado["tipo"];
+                        listaresidente.Add(residenteExistente);
+                    }
+                }
+            }
+            return listaresidente;
+        }
+*********/
