@@ -77,7 +77,7 @@ namespace SOAPService
 
         public ICollection<DVivienda> ListarTodasLasViviendas()
         {
-            return ViviendaDAO.ListarTodasLasViviendas();
+            return ViviendaDAO.ListarTodosLasViviendas();
         }
 
         #endregion
