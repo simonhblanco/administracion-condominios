@@ -75,7 +75,7 @@ namespace SOAPService
             return ViviendaDAO.Eliminar(viviendaAEliminar);
         }
 
-        public ICollection<DVivienda> ListarTodasLasViviendas()
+        public ICollection<DVivienda> ListarTodosLasViviendas()
         {
             return ViviendaDAO.ListarTodosLasViviendas();
         }
