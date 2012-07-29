@@ -25,6 +25,6 @@ namespace SOAPService
         DVivienda EliminarVivienda(DVivienda dvivienda);
 
         [OperationContract]
-        ICollection<DVivienda> ListarTodasLasViviendas();  
+        ICollection<DVivienda> ListarTodosLasViviendas();  
     }
 }
