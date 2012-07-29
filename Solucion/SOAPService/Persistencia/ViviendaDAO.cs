@@ -35,7 +35,7 @@ namespace SOAPService.Persistencia
         public DVivienda Obtener(int numvivienda)
         {
             DVivienda viviendaExistente = null;
-            string sentencia = "SELECT * FROM residente WHERE numvivienda=@numvivienda";
+            string sentencia = "SELECT * FROM vivienda WHERE numvivienda=@numvivienda";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
