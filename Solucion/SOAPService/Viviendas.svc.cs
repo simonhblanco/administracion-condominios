@@ -41,7 +41,7 @@ namespace SOAPService
             return ViviendaDAO.Crear(viviendaACrear);
         }
 
-        public DVivienda ObtenerVivienda(int numvivienda)
+        public DVivienda ObtenerVivienda(Int32 numvivienda)
         {
             return ViviendaDAO.Obtener(numvivienda);
         }
@@ -61,18 +61,18 @@ namespace SOAPService
             return ViviendaDAO.Modificar(viviendaAModificar);
         }
 
-        public DVivienda EliminarVivienda(DVivienda dvivienda)
+        public void EliminarVivienda(DVivienda dvivienda)
         {
-            DVivienda viviendaAEliminar = new DVivienda()
-            {
-                NumVivienda = dvivienda.NumVivienda,
-                Ubicacion = dvivienda.Ubicacion,
-                Numero = dvivienda.Numero,
-                Metraje = dvivienda.Metraje,
-                Tipo = dvivienda.Tipo,
-                Residente = dvivienda.Residente
-            };
-            return ViviendaDAO.Eliminar(viviendaAEliminar);
+            //DVivienda viviendaAEliminar = new DVivienda()
+            //{
+            //    NumVivienda = dvivienda.NumVivienda,
+            //    Ubicacion = dvivienda.Ubicacion,
+            //    Numero = dvivienda.Numero,
+            //    Metraje = dvivienda.Metraje,
+            //    Tipo = dvivienda.Tipo,
+            //    Residente = dvivienda.Residente
+            //};
+            ViviendaDAO.Eliminar(dvivienda);
         }
 
         public ICollection<DVivienda> ListarTodosLasViviendas()

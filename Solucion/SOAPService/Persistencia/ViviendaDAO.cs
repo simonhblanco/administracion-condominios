@@ -9,8 +9,10 @@ using System.Data.SqlClient;
 
 namespace SOAPService.Persistencia
 {
-    public class ViviendaDAO: BaseDAO<DVivienda, String>
+    public class ViviendaDAO : BaseDAO<DVivienda, Int32>
     {
+        ResidenteDAO residenteDAO = new ResidenteDAO();
+
         public DVivienda Crear(DVivienda vivienda)
         {
             string sentencia = "INSERT INTO vivienda(numvivienda, ubicacion, numero, metraje, tipo, dni) VALUES (@numvivienda, @ubicacion, @numero, @metraje, @tipo, @dni)";
@@ -18,7 +20,6 @@ namespace SOAPService.Persistencia
             {
                 conexion.Open();
                 using (SqlCommand commando = new SqlCommand(sentencia, conexion))
-
                 {
                     commando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
                     commando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
@@ -61,8 +62,9 @@ namespace SOAPService.Persistencia
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
+
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
-                { 
+                {
                     comando.Parameters.Add(new SqlParameter("numero", vivienda.Numero));
                     comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
                     comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
@@ -112,7 +114,7 @@ namespace SOAPService.Persistencia
                         viviendaExistente.Tipo = (String)resultado["tipo"];
                         viviendaExistente.Residente.DNI = (String)resultado["dni"];
                         listavivienda.Add(viviendaExistente);
-                     
+
                     }
                 }
             }
