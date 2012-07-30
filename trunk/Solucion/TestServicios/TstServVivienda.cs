@@ -11,25 +11,25 @@ namespace TestServicios
     [TestClass]
     public class TstServVivienda
     {
-        //[TestMethod]
-        //public void crearVivienda()
-        //{
-        //    ViviendaDAO dao = new ViviendaDAO();
+        ViviendaDAO dao = new ViviendaDAO();
+        ResidenteDAO residenteDAO = new ResidenteDAO();
+        DResidente residente = new DResidente();
 
-        //    DResidente residente = new DResidente();
+        [TestMethod]
+        public void crearVivienda()
+        {
+            residente.DNI = "40717626";
 
-        //    residente.DNI = "40717626";
-
-        //    DVivienda r = dao.Crear(new DVivienda()
-        //    {   
-        //        Ubicacion = "Lima",
-        //        Numero = 459,
-        //        Metraje = 200,
-        //        Tipo = "C",
-        //        Residente = residente
-        //    });
-        //    Assert.AreEqual(r.NumVivienda, 0);
-        //}
+            DVivienda r = dao.Crear(new DVivienda()
+            {
+                Ubicacion = "San Borja",
+                Numero = 459,
+                Metraje = 200,
+                Tipo = "C",
+                Residente = residente
+            });
+            Assert.AreEqual(r.NumVivienda, 1);
+        }
 
         //[TestMethod]
         //public void ObtenerVivienda()
@@ -53,32 +53,37 @@ namespace TestServicios
         public void modificarVivienda()
         {
             ViviendaDAO dao = new ViviendaDAO();
-            //DVivienda r = dao.Modificar(new DVivienda()
-            //{
-            //    NumVivienda = 0,
-            //    Ubicacion = "Lima",
-            //    Numero = 459,
-            //    Metraje = 200,
-            //    Tipo = "C",
-            //    Residente = residente
-            //});
-            //Assert.AreEqual(r.DNI, "12");
-
-            // 1. Instancia el objeto a probar
             DVivienda pruebaVivienda = new DVivienda();
-
-            // 2. Instanciamos el objeto TO
             pruebaVivienda.NumVivienda = 0;
-            pruebaVivienda = dao.Obtener(pruebaVivienda.NumVivienda);
+            residente = residenteDAO.Obtener("40717626");
             DVivienda viviendaOriginal = dao.Obtener(pruebaVivienda.NumVivienda);
-            pruebaVivienda.Ubicacion = "Callao";
 
-            // 3. Llamada al método del DAO a probar
-            DVivienda viviendaModificado = dao.Modificar(pruebaVivienda);
+            DVivienda r = dao.Modificar(new DVivienda()
+            {
+                NumVivienda = 0,
+                Ubicacion = "Lima",
+                Numero = 459,
+                Metraje = 200,
+                Tipo = "C",
+                Residente = residente
+            });
+            Assert.AreNotEqual(viviendaOriginal.Ubicacion,r.Ubicacion);
 
-            // 4. Implementar las validaciones
-            Assert.IsNotNull(viviendaModificado);
-            Assert.AreNotEqual(viviendaOriginal.Ubicacion, viviendaModificado.Ubicacion);
+            //// 1. Instancia el objeto a probar
+            //DVivienda pruebaVivienda = new DVivienda();
+
+            //// 2. Instanciamos el objeto TO
+            //pruebaVivienda.NumVivienda = 0;
+            //pruebaVivienda = dao.Obtener(pruebaVivienda.NumVivienda);
+            //DVivienda viviendaOriginal = dao.Obtener(pruebaVivienda.NumVivienda);
+            //pruebaVivienda.Ubicacion = "Callao";
+
+            //// 3. Llamada al método del DAO a probar
+            //DVivienda viviendaModificado = dao.Modificar(pruebaVivienda);
+
+            //// 4. Implementar las validaciones
+            //Assert.IsNotNull(viviendaModificado);
+            //Assert.AreNotEqual(viviendaOriginal.Ubicacion, viviendaModificado.Ubicacion);
         }
 
         //[Test]

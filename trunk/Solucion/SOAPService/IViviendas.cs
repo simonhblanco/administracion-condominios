@@ -16,15 +16,15 @@ namespace SOAPService
         DVivienda CrearVivienda(DVivienda dvivienda);
 
         [OperationContract]
-        DVivienda ObtenerVivienda(int codigo);
+        DVivienda ObtenerVivienda(Int32 codigo);
 
         [OperationContract]
         DVivienda ModificarVivienda(DVivienda dvivienda);
 
         [OperationContract]
-        DVivienda EliminarVivienda(DVivienda dvivienda);
+        void EliminarVivienda(DVivienda dvivienda);
 
         [OperationContract]
-        ICollection<DVivienda> ListarTodosLasViviendas();  
+        ICollection<DVivienda> ListarTodosLasViviendas();
     }
 }
