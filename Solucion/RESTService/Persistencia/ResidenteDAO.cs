@@ -58,7 +58,8 @@ namespace RESTService.Persistencia
             }
             return residenteExistente;
         }
-        public DResidente Modificar(DResidente residente)
+        //public DResidente Modificar(DResidente residente)
+        public DResidente Modificar(string strNombre, string intEdad, string strCodigo)
         {
             //int nuevoCodigo = ObtenerNuevoCodigo();
             string sentencia = "update residente set apellidopaterno = @apellidopaterno, apellidomaterno =  @apellidomaterno, clave = @clave, correo = @correo, edad = @edad, nombres = @nombres, tipo = @tipo where dni = @dni";
@@ -67,18 +68,19 @@ namespace RESTService.Persistencia
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@apellidopaterno", residente.ApellidoPaterno));
-                    comando.Parameters.Add(new SqlParameter("@apellidomaterno", residente.ApellidoMaterno));
-                    comando.Parameters.Add(new SqlParameter("@nombres", residente.Nombres));
-                    comando.Parameters.Add(new SqlParameter("@clave", residente.Clave));
-                    comando.Parameters.Add(new SqlParameter("@correo", residente.Correo));
-                    comando.Parameters.Add(new SqlParameter("@edad", residente.Edad));
-                    comando.Parameters.Add(new SqlParameter("@tipo", residente.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@dni", residente.DNI));
+                    //comando.Parameters.Add(new SqlParameter("@apellidopaterno", residente.ApellidoPaterno));
+                    //comando.Parameters.Add(new SqlParameter("@apellidomaterno", residente.ApellidoMaterno));
+                    comando.Parameters.Add(new SqlParameter("@nombres", strNombre));
+                    //comando.Parameters.Add(new SqlParameter("@clave", residente.Clave));
+                    //comando.Parameters.Add(new SqlParameter("@correo", residente.Correo));
+                    comando.Parameters.Add(new SqlParameter("@edad", intEdad));
+                    //comando.Parameters.Add(new SqlParameter("@tipo", residente.Tipo));
+                    comando.Parameters.Add(new SqlParameter("@dni", strCodigo));
                     comando.ExecuteNonQuery();
                 }
             }
-            return Obtener(residente.DNI);
+            //return Obtener(residente.DNI);
+            return Obtener(strCodigo);
         }
         public DResidente Eliminar(string codigo)
         {

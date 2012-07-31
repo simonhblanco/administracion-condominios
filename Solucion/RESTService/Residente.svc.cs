@@ -24,9 +24,11 @@ namespace RESTService
             return objResidenteDAO.Obtener(codigo);
         }
 
-        public DResidente ModificarResidente(DResidente residenteAModificar)
+        //public DResidente ModificarResidente(DResidente residenteAModificar)
+        public DResidente ModificarResidente(string nombre, string edad, string codigo)
         {
-            return objResidenteDAO.Modificar(residenteAModificar );
+            //return objResidenteDAO.Modificar(residenteAModificar );
+            return objResidenteDAO.Modificar(nombre,edad, codigo);
         }
 
         public DResidente EliminarResidente(string codigo)

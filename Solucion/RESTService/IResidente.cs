@@ -22,8 +22,9 @@ namespace RESTService
         DResidente ObtenerResidente(string codigo);
 
         [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "Residente", ResponseFormat = WebMessageFormat.Json)]
-        DResidente ModificarResidente(DResidente residenteAModificar);
+        [WebInvoke(Method = "PUT", UriTemplate = "nombres/{nombre}/edad/{edad}/codigo/{codigo}", ResponseFormat = WebMessageFormat.Json)]
+        DResidente ModificarResidente(string nombre, string edad, string codigo);
+        //DResidente ModificarResidente(DResidente residenteAModificar);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE", UriTemplate = "Residente/{codigo}", ResponseFormat = WebMessageFormat.Json)]
