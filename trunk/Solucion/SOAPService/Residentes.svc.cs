@@ -57,21 +57,21 @@ namespace SOAPService
             return ResidenteDAO.Modificar(residenteAModificar);
         }
 
-        public DResidente EliminarResidente(DResidente dresidente)
+        public DResidente EliminarResidente(string codigo)
         {
-            DResidente residenteAEliminar = new DResidente()
-            {
-                // llave de búsqueda DNI 
-                DNI = dresidente.DNI,
-                Nombres = dresidente.Nombres,
-                ApellidoPaterno = dresidente.ApellidoMaterno,
-                ApellidoMaterno = dresidente.ApellidoMaterno,
-                Edad = dresidente.Edad,
-                Correo = dresidente.Correo,
-                Clave = dresidente.Clave,
-                Tipo = dresidente.Tipo
-            };
-            return ResidenteDAO.Eliminar(residenteAEliminar);
+            //DResidente residenteAEliminar = new DResidente()
+            //{
+            //    // llave de búsqueda DNI 
+            //    DNI = dresidente.DNI,
+            //    Nombres = dresidente.Nombres,
+            //    ApellidoPaterno = dresidente.ApellidoMaterno,
+            //    ApellidoMaterno = dresidente.ApellidoMaterno,
+            //    Edad = dresidente.Edad,
+            //    Correo = dresidente.Correo,
+            //    Clave = dresidente.Clave,
+            //    Tipo = dresidente.Tipo
+            //};
+            return ResidenteDAO.Eliminar(codigo);
         }
         
         public ICollection<DResidente> ListarTodosLosResidentes()

@@ -48,6 +48,12 @@ namespace SOAPService.Persistencia
                     {
                         residenteExistente = new DResidente();
                         residenteExistente.DNI = (string)resultado["dni"];
+                        residenteExistente.Nombres = (string)resultado["nombres"];
+                        residenteExistente.ApellidoPaterno = (string)resultado["apellidopaterno"];
+                        residenteExistente.ApellidoMaterno = (string)resultado["apellidomaterno"];
+                        residenteExistente.Edad = (int)resultado["edad"];
+                        residenteExistente.Correo = (string)resultado["correo"];
+                        //Se agregó campos para que se visualice en el WCF ya que no salia campos de la tabla RESIDENTE.
                     }
                 }
             }
@@ -75,7 +81,7 @@ namespace SOAPService.Persistencia
             }
             return Obtener(residente.DNI);
         }
-        public DResidente Eliminar(DResidente residente)
+        public DResidente Eliminar(string codigo)
         {
             //int nuevoCodigo = ObtenerNuevoCodigo();
             string sentencia = "delete from residente where dni = @dni";
@@ -84,11 +90,11 @@ namespace SOAPService.Persistencia
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@dni", residente.DNI));
+                    comando.Parameters.Add(new SqlParameter("@dni", codigo));
                     comando.ExecuteNonQuery();
                 }
             }
-            return Obtener(residente.DNI);
+            return Obtener(codigo);
         }
         public ICollection<DResidente> ListarTodosLosResidentes()
         {
