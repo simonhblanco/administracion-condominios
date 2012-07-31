@@ -16,13 +16,13 @@ namespace SOAPService
         DResidente CrearResidente(DResidente dresidente);
 
         [OperationContract]
-        DResidente ObtenerResidente(String codigo);
+        DResidente ObtenerResidente(string codigo);
 
         [OperationContract]
         DResidente ModificarResidente(DResidente dresidente);
 
         [OperationContract]
-        DResidente EliminarResidente(DResidente dresidente);
+        DResidente EliminarResidente(string codigo);
 
         [OperationContract]
         ICollection<DResidente> ListarTodosLosResidentes();
