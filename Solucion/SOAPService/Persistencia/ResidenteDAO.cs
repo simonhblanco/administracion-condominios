@@ -53,6 +53,8 @@ namespace SOAPService.Persistencia
                         residenteExistente.ApellidoMaterno = (string)resultado["apellidomaterno"];
                         residenteExistente.Edad = (int)resultado["edad"];
                         residenteExistente.Correo = (string)resultado["correo"];
+                        residenteExistente.Clave = (string)resultado["clave"];
+                        residenteExistente.Tipo = (string)resultado["tipo"];
                         //Se agregó campos para que se visualice en el WCF ya que no salia campos de la tabla RESIDENTE.
                     }
                 }
