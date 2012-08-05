@@ -68,7 +68,7 @@ namespace SOAPService
             //    NumVivienda = dvivienda.NumVivienda,
             //    Ubicacion = dvivienda.Ubicacion,
             //    Numero = dvivienda.Numero,
-            //    Metraje = dvivienda.Metraje,
+            //   Metraje = dvivienda.Metraje,
             //    Tipo = dvivienda.Tipo,
             //    Residente = dvivienda.Residente
             //};
