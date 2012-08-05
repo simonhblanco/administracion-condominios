@@ -48,8 +48,13 @@ namespace SOAPService.Persistencia
                     {
                         viviendaExistente = new DVivienda();
                         viviendaExistente.NumVivienda = (int)resultado["numvivienda"];
+                        viviendaExistente.Ubicacion = (string)resultado["ubicacion"];
+                        viviendaExistente.Numero = (int)resultado["numero"];
+                        viviendaExistente.Metraje = (int)resultado["metraje"];
+                        viviendaExistente.Tipo = (string)resultado["tipo"];
+                        viviendaExistente.Residente.DNI = (string)resultado["dni"];
                     }
-
+                    // se agregaron los campos para ser visualizados en el WFC
                 }
             }
 
@@ -58,15 +63,16 @@ namespace SOAPService.Persistencia
 
         public DVivienda Modificar(DVivienda vivienda)
         {
-            string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo";
+            string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo, dni=@dni";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
 
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("numero", vivienda.Numero));
+                    
                     comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
+                    comando.Parameters.Add(new SqlParameter("numero", vivienda.Numero));
                     comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
                     comando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
                     comando.Parameters.Add(new SqlParameter("@dni", vivienda.Residente.DNI));
@@ -77,7 +83,7 @@ namespace SOAPService.Persistencia
             return Obtener(vivienda.NumVivienda);
         }
 
-        public DVivienda Eliminar(DVivienda vivienda)
+        public DVivienda Eliminar(int codigovivienda)
         {
             string sentencia = "delete from vivienda where numvivienda = @numvivienda";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
@@ -85,11 +91,12 @@ namespace SOAPService.Persistencia
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
+                    comando.Parameters.Add(new SqlParameter("@numvivienda", codigovivienda));
                     comando.ExecuteNonQuery();
                 }
             }
-            return Obtener(vivienda.NumVivienda);
+            return Obtener(codigovivienda);
+
         }
 
 
