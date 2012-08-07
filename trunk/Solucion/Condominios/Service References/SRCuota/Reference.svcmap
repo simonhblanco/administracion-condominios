@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb0225f8-c727-4348-912a-b4dcb7f4374d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20122/Cuota.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Cuota.wsdl" MetadataType="Wsdl" ID="3b23a95d-5ca1-44bc-96d9-bfc44d989d61" SourceId="1" SourceUrl="http://localhost:20122/Cuota.svc?wsdl" />
+    <MetadataFile FileName="Cuota.xsd" MetadataType="Schema" ID="a6ecb647-cad9-46e4-8b34-c37529bb466b" SourceId="1" SourceUrl="http://localhost:20122/Cuota.svc?xsd=xsd2" />
+    <MetadataFile FileName="Cuota1.xsd" MetadataType="Schema" ID="99e4677a-11ec-4cd3-a20a-7bcb8ec01a64" SourceId="1" SourceUrl="http://localhost:20122/Cuota.svc?xsd=xsd0" />
+    <MetadataFile FileName="Cuota2.xsd" MetadataType="Schema" ID="509077ea-0680-49fe-93c5-de0f693162e3" SourceId="1" SourceUrl="http://localhost:20122/Cuota.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

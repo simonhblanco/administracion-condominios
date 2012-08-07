@@ -27,7 +27,7 @@ namespace SOAPService.Persistencia
                     com.Parameters.Add(new SqlParameter("@anio", cuotaACrear.Anio));
                     com.Parameters.Add(new SqlParameter("@importe", cuotaACrear.Importe));
                     com.Parameters.Add(new SqlParameter("@fechavencimiento", cuotaACrear.FechaVencimiento));
-                    com.Parameters.Add(new SqlParameter("@numvivienda", cuotaACrear.NumVivienda.NumVivienda));
+                    com.Parameters.Add(new SqlParameter("@numvivienda", cuotaACrear.Vivienda.NumVivienda));
                     com.Parameters.Add(new SqlParameter("@estado", cuotaACrear.Estado));
                     com.ExecuteNonQuery();
                 }
@@ -62,7 +62,7 @@ namespace SOAPService.Persistencia
                             cuotaEncontrado.Anio = (string)resultado["anio"];
                             //cuotaEncontrado.Importe = (double)resultado["importe"];
                             cuotaEncontrado.FechaVencimiento = (DateTime)resultado["fechavencimiento"];
-                            cuotaEncontrado.NumVivienda = viviendaDAO.Obtener((int)resultado["numvivienda"]);
+                            cuotaEncontrado.Vivienda = viviendaDAO.Obtener((int)resultado["numvivienda"]);
                             cuotaEncontrado.Estado = (string)resultado["mes"];
                         }
                     }
@@ -86,7 +86,7 @@ namespace SOAPService.Persistencia
                     com.Parameters.Add(new SqlParameter("@anio", cuotaAModificar.Anio));
                     com.Parameters.Add(new SqlParameter("@importe", cuotaAModificar.Importe));
                     com.Parameters.Add(new SqlParameter("@fechavencimiento", cuotaAModificar.FechaVencimiento));
-                    com.Parameters.Add(new SqlParameter("@numvivienda", cuotaAModificar.NumVivienda));
+                    com.Parameters.Add(new SqlParameter("@numvivienda", cuotaAModificar.Vivienda));
                     com.Parameters.Add(new SqlParameter("@estado", cuotaAModificar.Estado));
                 }
             }
@@ -108,9 +108,9 @@ namespace SOAPService.Persistencia
             }
         }
 
-        public List<DCuota> ListarTodos()
+        public ICollection<DCuota> ListarTodos()
         {
-            List<DCuota> cuotasEncontradas = new List<DCuota>();
+            ICollection<DCuota> cuotasEncontradas = new List<DCuota>();
             DCuota cuotaEncontrada = null;
 
             string sql = "SELECT * FROM cuota";
@@ -132,7 +132,7 @@ namespace SOAPService.Persistencia
                             cuotaEncontrada.Anio = (string)resultado["anio"];
                             //cuotaEncontrada.Importe = (double)resultado["importe"];
                             cuotaEncontrada.FechaVencimiento = (DateTime)resultado["fechavencimiento"];
-                            cuotaEncontrada.NumVivienda = viviendaDAO.Obtener((int)resultado["numvivienda"]);
+                            cuotaEncontrada.Vivienda = viviendaDAO.Obtener((int)resultado["numvivienda"]);
                             cuotaEncontrada.Estado = (string)resultado["mes"];
 
                             cuotasEncontradas.Add(cuotaEncontrada);

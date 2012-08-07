@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Condominios.Negocio;
 using Condominios.Dominio;
+using Condominios.SRCuota;
 
 namespace Condominios.Controllers
 {
@@ -16,8 +17,11 @@ namespace Condominios.Controllers
         // GET: /Couta/
         public ActionResult Index()
         {
-            // Llamamos al negocio para resolver la funcionalidad y obtenemos el "modelo"
-            ICollection<Cuota> modelo = TransaccionService.ListarTodasLasCuotas();
+            //// Llamamos al negocio para resolver la funcionalidad y obtenemos el "modelo"
+            //ICollection<Cuota> modelo = TransaccionService.ListarTodasLasCuotas();
+
+            SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+            ICollection<DCuota> modelo = res.ListarCuotas();
 
             // Elegimos la vista a generar y le entregamos el modelo
             return View(modelo); // La vista se llama Index.aspx
@@ -26,7 +30,10 @@ namespace Condominios.Controllers
         // GET: /Couta/Details/5
         public ActionResult Details(int IdCuota)
         {
-            Cuota modelo = TransaccionService.MostrarCuota(IdCuota);
+            //Cuota modelo = TransaccionService.MostrarCuota(IdCuota);
+
+            SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+            DCuota modelo = res.ObtenerCuota(IdCuota);
 
             return View(modelo); //La vista se llama Details.aspx
         }
@@ -46,12 +53,12 @@ namespace Condominios.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    Cuota cuotaACrear = new Cuota();
-                    Vivienda vivienda = new Vivienda();
+                    DCuota cuotaACrear = new DCuota();
+                    DVivienda vivienda = new DVivienda();
 
                     vivienda.NumVivienda = int.Parse(collection["Vivienda"]);
 
-                    //cuotaACrear.IdCuota = int.Parse(collection["IdCuota"]);
+                    cuotaACrear.IdCuota = int.Parse(collection["IdCuota"]);
                     cuotaACrear.Vivienda = vivienda;
                     cuotaACrear.Mes = (String)collection["Mes"];
                     cuotaACrear.Anio = (String)collection["Anio"];
@@ -59,7 +66,9 @@ namespace Condominios.Controllers
                     cuotaACrear.FechaVencimiento = DateTime.Parse(collection["FechaVencimiento"]);
                     cuotaACrear.Estado = (String)collection["Estado"];
 
-                    TransaccionService.ColocarCuota(cuotaACrear);
+                    //TransaccionService.ColocarCuota(cuotaACrear);
+                    SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+                    res.CrearCuota(cuotaACrear);
 
                     return RedirectToAction("Index");
                 }
@@ -77,7 +86,10 @@ namespace Condominios.Controllers
         // GET: /Couta/Edit/5
         public ActionResult Edit(int IdCuota)
         {
-            Cuota modelo = TransaccionService.MostrarCuota(IdCuota);
+            //Cuota modelo = TransaccionService.MostrarCuota(IdCuota);
+
+            SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+            DCuota modelo = res.ObtenerCuota(IdCuota);
 
             return View(modelo); //La vista se llama Details.aspx
         }
@@ -89,14 +101,17 @@ namespace Condominios.Controllers
             try
             {
                 // TODO: Add update logic here
-                Cuota cuotaAModificar = TransaccionService.MostrarCuota(IdCuota);
+                //Cuota cuotaAModificar = TransaccionService.MostrarCuota(IdCuota);
+                SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+                DCuota cuotaAModificar = res.ObtenerCuota(IdCuota);
 
                 cuotaAModificar.Anio = (String)collection["Anio"];
                 cuotaAModificar.Mes = (String)collection["Mes"];
                 cuotaAModificar.Importe = int.Parse(collection["Importe"]);
                 cuotaAModificar.FechaVencimiento = DateTime.Parse(collection["FechaVencimiento"]);
 
-                TransaccionService.ModificarCuota(cuotaAModificar);
+                //TransaccionService.ModificarCuota(cuotaAModificar);
+                res.ModificarCuota(cuotaAModificar);
 
                 return RedirectToAction("Index");
             }
@@ -109,7 +124,10 @@ namespace Condominios.Controllers
         // GET: /Couta/Delete/5
         public ActionResult Delete(int IdCuota)
         {
-            Cuota modelo = TransaccionService.MostrarCuota(IdCuota);
+            //Cuota modelo = TransaccionService.MostrarCuota(IdCuota);
+
+            SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+            DCuota modelo = res.ObtenerCuota(IdCuota);
 
             return View(modelo);
         }
@@ -121,8 +139,12 @@ namespace Condominios.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Cuota cuotaAEliminar = TransaccionService.MostrarCuota(IdCuota);
-                TransaccionService.EliminarCuota(cuotaAEliminar);
+                //Cuota cuotaAEliminar = TransaccionService.MostrarCuota(IdCuota);
+                //TransaccionService.EliminarCuota(cuotaAEliminar);
+
+                SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+                DCuota cuotaAEliminar = res.ObtenerCuota(IdCuota);
+                res.EliminarCuota(IdCuota);
 
                 return RedirectToAction("Index");
             }

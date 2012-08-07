@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Condominios.Dominio.Cuota>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Condominios.SRCuota.DCuota>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Lista de Cuotas
@@ -29,7 +29,7 @@
                 <%: Html.ActionLink("Delete", "Delete", new { IdCuota = item.IdCuota })%>
             </td>
             <td><%: item.IdCuota %></td>
-            <td><%: item.Vivienda.NumVivienda %></td>
+            <td><%: item.Vivienda.NumVivienda%></td>
             <td><%: item.Mes %></td>
             <td><%: item.Anio %></td>
             <td><%: String.Format("{0:F}", item.Importe) %></td>

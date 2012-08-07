@@ -21,7 +21,7 @@ namespace Condominios.Controllers
             //ICollection<Residente> modelo = RegistrarService.ListarTodosLosAlumnos();
             SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
             ICollection<DResidente> modelo = res.ListarTodosLosResidentes();
-
+            
             // Elegimos la vista a generar y le entregamos el modelo
             return View(modelo); // La vista se llama Index.aspx
         }
