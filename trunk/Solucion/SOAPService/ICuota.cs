@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using SOAPService.Dominio;
 
 namespace SOAPService
 {
@@ -12,6 +13,18 @@ namespace SOAPService
     public interface ICuota
     {
         [OperationContract]
-        void DoWork();
+        DCuota CrearCuota(DCuota dcuota);
+
+        [OperationContract]
+        DCuota ObtenerCuota(int idcuota);
+
+        [OperationContract]
+        DCuota ModificarCuota(DCuota dcuota);
+
+        [OperationContract]
+        void EliminarCuota(int idcuota);
+
+        [OperationContract]
+        List<DCuota> ListarCuotas();
     }
 }

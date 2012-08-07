@@ -81,13 +81,16 @@
     <Compile Include="Cuota.svc.cs">
       <DependentUpon>Cuota.svc</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\DCuota.cs" />
     <Compile Include="Dominio\DResidente.cs" />
+    <Compile Include="Dominio\DTransaccionPago.cs" />
     <Compile Include="Dominio\DVivienda.cs" />
     <Compile Include="ICuota.cs" />
     <Compile Include="IResidentes.cs" />
     <Compile Include="IViviendas.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
+    <Compile Include="Persistencia\CuotaDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\ResidenteDAO.cs" />
     <Compile Include="Persistencia\ViviendaDAO.cs" />
