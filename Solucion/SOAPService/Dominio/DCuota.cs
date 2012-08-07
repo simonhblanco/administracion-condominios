@@ -20,7 +20,7 @@ namespace SOAPService.Dominio
         [DataMember]
         public DateTime FechaVencimiento { get; set; }
         [DataMember]
-        public Vivienda NumVivienda { get; set; }
+        public DVivienda NumVivienda { get; set; }
         [DataMember]
         public String Estado { get; set; }
     }

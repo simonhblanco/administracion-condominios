@@ -3,40 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SOAPService.Dominio;
-using NHibernate;
-using NHibernate.Criterion;
 using System.Data.SqlClient;
 
 namespace SOAPService.Persistencia
 {
-    public class ViviendaDAO : BaseDAO<DVivienda, Int32>
+    public class ViviendaDAO
     {
-        ResidenteDAO residenteDAO = new ResidenteDAO();
+        private ResidenteDAO residenteDAO = new ResidenteDAO();
 
-        public DVivienda Crear(DVivienda vivienda)
+        public DVivienda Crear(DVivienda viviendaACrear)
         {
+            DVivienda viviendaCreada = null;
+
             string sentencia = "INSERT INTO vivienda(numvivienda, ubicacion, numero, metraje, tipo, dni) VALUES (@numvivienda, @ubicacion, @numero, @metraje, @tipo, @dni)";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
                 using (SqlCommand commando = new SqlCommand(sentencia, conexion))
                 {
-                    commando.Parameters.Add(new SqlParameter("@numvivienda", vivienda.NumVivienda));
-                    commando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
-                    commando.Parameters.Add(new SqlParameter("@numero", vivienda.Numero));
-                    commando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
-                    commando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
-                    commando.Parameters.Add(new SqlParameter("@dni", vivienda.Residente.DNI));
+                    commando.Parameters.Add(new SqlParameter("@numvivienda", viviendaACrear.NumVivienda));
+                    commando.Parameters.Add(new SqlParameter("@ubicacion", viviendaACrear.Ubicacion));
+                    commando.Parameters.Add(new SqlParameter("@numero", viviendaACrear.Numero));
+                    commando.Parameters.Add(new SqlParameter("@metraje", viviendaACrear.Metraje));
+                    commando.Parameters.Add(new SqlParameter("@tipo", viviendaACrear.Tipo));
+                    commando.Parameters.Add(new SqlParameter("@dni", viviendaACrear.Residente.DNI));
                     commando.ExecuteNonQuery();
                 }
             }
-            return Obtener(vivienda.NumVivienda);
+
+            viviendaCreada = Obtener(viviendaACrear.NumVivienda);
+
+            return viviendaCreada;
         }
 
         public DVivienda Obtener(int numvivienda)
         {
             DVivienda viviendaExistente = null;
+
             string sentencia = "SELECT * FROM vivienda WHERE numvivienda=@numvivienda";
+
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
@@ -52,38 +57,46 @@ namespace SOAPService.Persistencia
                         viviendaExistente.Numero = (int)resultado["numero"];
                         viviendaExistente.Metraje = (int)resultado["metraje"];
                         viviendaExistente.Tipo = (string)resultado["tipo"];
-                        viviendaExistente.Residente.DNI = (string)resultado["dni"];
+                        viviendaExistente.Residente = residenteDAO.Obtener((string)resultado["dni"]);
+                        
+                        //viviendaExistente.Residente = new DResidente()
+                        //{
+                        //    DNI = (string)resultado["dni"]
+                        //};
                     }
-                    // se agregaron los campos para ser visualizados en el WFC
                 }
             }
 
             return viviendaExistente;
         }
 
-        public DVivienda Modificar(DVivienda vivienda)
+        public DVivienda Modificar(DVivienda viviendaAModificar)
         {
+            DVivienda viviendaModificada = null;
+
             string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo, dni=@dni";
+            
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
 
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    
-                    comando.Parameters.Add(new SqlParameter("@ubicacion", vivienda.Ubicacion));
-                    comando.Parameters.Add(new SqlParameter("numero", vivienda.Numero));
-                    comando.Parameters.Add(new SqlParameter("@metraje", vivienda.Metraje));
-                    comando.Parameters.Add(new SqlParameter("@tipo", vivienda.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@dni", vivienda.Residente.DNI));
+                    comando.Parameters.Add(new SqlParameter("@ubicacion", viviendaAModificar.Ubicacion));
+                    comando.Parameters.Add(new SqlParameter("numero", viviendaAModificar.Numero));
+                    comando.Parameters.Add(new SqlParameter("@metraje", viviendaAModificar.Metraje));
+                    comando.Parameters.Add(new SqlParameter("@tipo", viviendaAModificar.Tipo));
+                    comando.Parameters.Add(new SqlParameter("@dni", viviendaAModificar.Residente));
                     comando.ExecuteNonQuery();
                 }
-
             }
-            return Obtener(vivienda.NumVivienda);
+
+            viviendaModificada = Obtener(viviendaAModificar.NumVivienda);
+
+            return viviendaModificada;
         }
 
-        public DVivienda Eliminar(int codigovivienda)
+        public void Eliminar(DVivienda viviendaAEliminar)
         {
             string sentencia = "delete from vivienda where numvivienda = @numvivienda";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
@@ -91,16 +104,14 @@ namespace SOAPService.Persistencia
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@numvivienda", codigovivienda));
+                    comando.Parameters.Add(new SqlParameter("@numvivienda", viviendaAEliminar.NumVivienda));
                     comando.ExecuteNonQuery();
                 }
             }
-            return Obtener(codigovivienda);
-
         }
 
 
-        public ICollection<DVivienda> ListarTodosLasViviendas()
+        public ICollection<DVivienda> ListarTodos()
         {
             ICollection<DVivienda> listavivienda = new List<DVivienda>();
 
