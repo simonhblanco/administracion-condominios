@@ -14,12 +14,13 @@ namespace TestServicios
         DCuota cuotaCreada = new DCuota();
         CuotaDAO cuotaDao = new CuotaDAO();
 
-        DVivienda vivienda = new DVivienda();
-        ViviendaDAO viviendaDAO = new ViviendaDAO();
-
         [TestMethod]
         public void Test01Crear()
         {
+
+            DVivienda vivienda = new DVivienda();
+            ViviendaDAO viviendaDAO = new ViviendaDAO();
+
             vivienda = viviendaDAO.Obtener(1);
 
             cuotaCreada.IdCuota = 2;
@@ -27,7 +28,7 @@ namespace TestServicios
             cuotaCreada.Anio = "2011";
             cuotaCreada.Importe = 2000.00;
             cuotaCreada.FechaVencimiento = DateTime.Now;
-            cuotaCreada.NumVivienda = vivienda;
+            cuotaCreada.Vivienda = vivienda;
             cuotaCreada.Estado = "P";
 
             cuotaCreada = cuotaDao.Crear(cuotaCreada);
@@ -96,7 +97,7 @@ namespace TestServicios
         [TestMethod]
         public void Test05Listar()
         {
-            List<DCuota> LDCuota = cuotaDao.ListarTodos();
+            ICollection<DCuota> LDCuota = cuotaDao.ListarTodos();
             Assert.IsNotNull(LDCuota);
             Assert.AreEqual(LDCuota.Count, 0);
         }

@@ -126,6 +126,11 @@
     <Compile Include="Pruebas\Test01ResidenteDAO.cs" />
     <Compile Include="Pruebas\Test05RegistrarService.cs" />
     <Compile Include="Pruebas\Test08TransaccionPago.cs" />
+    <Compile Include="Service References\SRCuota\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SRResidente\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +139,19 @@
     <None Include="Pruebas\TestReservaDAO.cs" />
     <Compile Include="Pruebas\Test03CuotaDAO.cs" />
     <None Include="Pruebas\TestAreaComunDAO.cs" />
+    <None Include="Service References\SRCuota\Condominios.SRCuota.DCuota.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SRCuota\Cuota.wsdl" />
+    <None Include="Service References\SRCuota\Cuota.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRCuota\Cuota1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRCuota\Cuota2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SRResidente\Condominios.SRResidente.DResidente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -168,6 +186,12 @@
     <None Include="Service References\SRResidente\configuration91.svcinfo" />
     <None Include="Service References\SRResidente\configuration.svcinfo" />
     <None Include="Service References\SRResidente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SRCuota\configuration91.svcinfo" />
+    <None Include="Service References\SRCuota\configuration.svcinfo" />
+    <None Include="Service References\SRCuota\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -228,6 +252,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SRCuota\" />
     <WCFMetadataStorage Include="Service References\SRResidente\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

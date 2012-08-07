@@ -25,6 +25,6 @@ namespace SOAPService
         void EliminarCuota(int idcuota);
 
         [OperationContract]
-        List<DCuota> ListarCuotas();
+        ICollection<DCuota> ListarCuotas();
     }
 }

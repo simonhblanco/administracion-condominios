@@ -37,7 +37,7 @@ namespace SOAPService
 
         public DCuota CrearCuota(DCuota dcuota)
         {
-            DVivienda viviendaExistente = ViviendaDAO.Obtener(dcuota.NumVivienda.NumVivienda);
+            DVivienda viviendaExistente = ViviendaDAO.Obtener(dcuota.Vivienda.NumVivienda);
             DCuota cuotaACrear = new DCuota()
             {
                 IdCuota = dcuota.IdCuota,
@@ -45,7 +45,7 @@ namespace SOAPService
                 Anio = dcuota.Anio,
                 Importe = dcuota.IdCuota,
                 FechaVencimiento = dcuota.FechaVencimiento,
-                NumVivienda = viviendaExistente,
+                Vivienda = viviendaExistente,
                 Estado = dcuota.Estado
             };
             return CuotaDAO.Crear(cuotaACrear);
@@ -58,7 +58,7 @@ namespace SOAPService
 
         public DCuota ModificarCuota(DCuota dcuota)
         {
-            DVivienda viviendaExistente = ViviendaDAO.Obtener(dcuota.NumVivienda.NumVivienda);
+            DVivienda viviendaExistente = ViviendaDAO.Obtener(dcuota.Vivienda.NumVivienda);
             DCuota cuotaAModificar = new DCuota()
             {
                 IdCuota = dcuota.IdCuota,
@@ -66,7 +66,7 @@ namespace SOAPService
                 Anio = dcuota.Anio,
                 Importe = dcuota.IdCuota,
                 FechaVencimiento = dcuota.FechaVencimiento,
-                NumVivienda = viviendaExistente,
+                Vivienda = viviendaExistente,
                 Estado = dcuota.Estado
             };
             return CuotaDAO.Modificar(cuotaAModificar);
@@ -78,9 +78,9 @@ namespace SOAPService
             CuotaDAO.Eliminar(cuotaExistente);
         }
 
-        public List<DCuota> ListarCuotas()
+        public ICollection<DCuota> ListarCuotas()
         {
-            return CuotaDAO.ListarTodos().ToList();
+            return CuotaDAO.ListarTodos();
         }
     }
 }

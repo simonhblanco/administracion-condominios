@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Condominios.Dominio.Cuota>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Condominios.SRCuota.DCuota>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Colocar Cuota
@@ -14,13 +14,13 @@
         <fieldset>
             <legend>Campos</legend>
             
-            <%--<div class="editor-label">
+            <div class="editor-label">
                 <%: Html.LabelFor(model => model.IdCuota) %>
             </div>
-            <div class="editor-field">
+            <div class="editor-field"> 
                 <%: Html.TextBoxFor(model => model.IdCuota) %>
                 <%: Html.ValidationMessageFor(model => model.IdCuota) %>
-            </div>--%>
+            </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Vivienda) %>
