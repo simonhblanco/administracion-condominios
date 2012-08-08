@@ -58,11 +58,6 @@ namespace SOAPService.Persistencia
                         viviendaExistente.Metraje = (int)resultado["metraje"];
                         viviendaExistente.Tipo = (string)resultado["tipo"];
                         viviendaExistente.Residente = residenteDAO.Obtener((string)resultado["dni"]);
-                        
-                        //viviendaExistente.Residente = new DResidente()
-                        //{
-                        //    DNI = (string)resultado["dni"]
-                        //};
                     }
                 }
             }
@@ -74,7 +69,7 @@ namespace SOAPService.Persistencia
         {
             DVivienda viviendaModificada = null;
 
-            string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo, dni=@dni";
+            string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo, dni=@dni where numvivienda=@numvivienda";
             
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
@@ -87,7 +82,6 @@ namespace SOAPService.Persistencia
                     comando.Parameters.Add(new SqlParameter("@metraje", viviendaAModificar.Metraje));
                     comando.Parameters.Add(new SqlParameter("@tipo", viviendaAModificar.Tipo));
                     comando.Parameters.Add(new SqlParameter("@dni", viviendaAModificar.Residente));
-                    comando.ExecuteNonQuery();
                 }
             }
 
@@ -130,9 +124,8 @@ namespace SOAPService.Persistencia
                         viviendaExistente.Numero = (int)resultado["numero"];
                         viviendaExistente.Metraje = (int)resultado["metraje"];
                         viviendaExistente.Tipo = (String)resultado["tipo"];
-                        viviendaExistente.Residente.DNI = (String)resultado["dni"];
+                        viviendaExistente.Residente = residenteDAO.Obtener((String)resultado["dni"]);
                         listavivienda.Add(viviendaExistente);
-
                     }
                 }
             }

@@ -16,7 +16,7 @@ namespace SOAPService.Dominio
         [DataMember]
         public String Anio { get; set; }
         [DataMember]
-        public double Importe { get; set; }
+        public Decimal Importe { get; set; }
         [DataMember]
         public DateTime FechaVencimiento { get; set; }
         [DataMember]

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace SOAPService.Persistencia
 {
-    public class ResidenteDAO : BaseDAO<DResidente, String>
+    public class ResidenteDAO
     {
         public DResidente Crear(DResidente residente)
         {
