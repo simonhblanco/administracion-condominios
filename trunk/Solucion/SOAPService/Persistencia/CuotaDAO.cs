@@ -60,7 +60,7 @@ namespace SOAPService.Persistencia
                             cuotaEncontrado.IdCuota = (int)resultado["idcuota"];
                             cuotaEncontrado.Mes = (string)resultado["mes"];
                             cuotaEncontrado.Anio = (string)resultado["anio"];
-                            //cuotaEncontrado.Importe = (double)resultado["importe"];
+                            cuotaEncontrado.Importe = (Decimal)resultado["importe"];
                             cuotaEncontrado.FechaVencimiento = (DateTime)resultado["fechavencimiento"];
                             cuotaEncontrado.Vivienda = viviendaDAO.Obtener((int)resultado["numvivienda"]);
                             cuotaEncontrado.Estado = (string)resultado["mes"];
@@ -130,7 +130,7 @@ namespace SOAPService.Persistencia
                             cuotaEncontrada.IdCuota = (int)resultado["idcuota"];
                             cuotaEncontrada.Mes = (string)resultado["mes"];
                             cuotaEncontrada.Anio = (string)resultado["anio"];
-                            //cuotaEncontrada.Importe = (double)resultado["importe"];
+                            cuotaEncontrada.Importe = (Decimal)resultado["importe"];
                             cuotaEncontrada.FechaVencimiento = (DateTime)resultado["fechavencimiento"];
                             cuotaEncontrada.Vivienda = viviendaDAO.Obtener((int)resultado["numvivienda"]);
                             cuotaEncontrada.Estado = (string)resultado["mes"];

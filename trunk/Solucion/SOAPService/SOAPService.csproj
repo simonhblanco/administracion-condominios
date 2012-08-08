@@ -64,8 +64,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dominio\DResidente.hbm.xml" />
-    <EmbeddedResource Include="Dominio\DVivienda.hbm.xml" />
     <Content Include="Cuota.svc" />
     <Content Include="Residentes.svc" />
     <Content Include="Viviendas.svc" />
@@ -88,7 +86,6 @@
     <Compile Include="ICuota.cs" />
     <Compile Include="IResidentes.cs" />
     <Compile Include="IViviendas.cs" />
-    <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\CuotaDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />

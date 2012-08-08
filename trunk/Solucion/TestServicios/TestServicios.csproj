@@ -59,7 +59,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="TestServCuota.cs" />
-    <Compile Include="TstServVivienda.cs" />
+    <Compile Include="TestServVivienda.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
