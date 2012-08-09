@@ -35,7 +35,7 @@ namespace Condominios.SRCuota {
         private int IdCuotaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ImporteField;
+        private decimal ImporteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MesField;
@@ -106,7 +106,7 @@ namespace Condominios.SRCuota {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Importe {
+        public decimal Importe {
             get {
                 return this.ImporteField;
             }
