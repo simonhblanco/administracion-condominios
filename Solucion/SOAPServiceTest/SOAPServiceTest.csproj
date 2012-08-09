@@ -54,7 +54,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SRVivienda\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="TestServResidente.cs" />
+    <Compile Include="TestServVivienda.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -74,9 +80,23 @@
     <None Include="Service References\SRResidente\SOAPServiceTest.SRResidente.DResidente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SRVivienda\SOAPServiceTest.SRVivienda.DVivienda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas.wsdl" />
+    <None Include="Service References\SRVivienda\Viviendas.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRResidente\" />
+    <WCFMetadataStorage Include="Service References\SRVivienda\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\SRResidente\Residentes.disco" />
@@ -89,6 +109,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\SRResidente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRVivienda\Viviendas.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRVivienda\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRVivienda\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRVivienda\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
