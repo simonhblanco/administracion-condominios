@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using Condominios.Negocio;
 using Condominios.Dominio;
+using Condominios.SRVivienda;
 
 namespace Condominios.Controllers
 {
     public class ViviendaController : Controller
     {
+        
         //Dependencias
         public RegistrarService RegistrarService { get; set; }
 
@@ -17,7 +19,9 @@ namespace Condominios.Controllers
         public ActionResult Index()
         {
             // Llamamos al negocio para resolver la funcionalidad y obtenemos el "modelo"
-            ICollection<Vivienda> modelo = RegistrarService.ListarTodasLasViviendas();
+            //ICollection<Vivienda> modelo = RegistrarService.ListarTodasLasViviendas();
+            SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+            ICollection<DVivienda> modelo = res.ListarTodosLasViviendas();
 
             // Elegimos la vista a generar y le entregamos el modelo
             return View(modelo); // La vista se llama Index.aspx
@@ -26,7 +30,9 @@ namespace Condominios.Controllers
         // GET: /Vivienda/Details/5
         public ActionResult Details(int NumVivienda)
         {
-            Vivienda modelo = RegistrarService.ObtenerVivienda(NumVivienda);
+            //Vivienda modelo = RegistrarService.ObtenerVivienda(NumVivienda);
+            SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+            DVivienda modelo = res.ObtenerVivienda(NumVivienda);
 
             return View(modelo); //La vista se llama Details.aspx
         }
@@ -46,8 +52,8 @@ namespace Condominios.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    Vivienda viviendaACrear = new Vivienda();
-                    Residente residente = new Residente();
+                    DVivienda viviendaACrear = new DVivienda();
+                    DResidente residente = new DResidente();
 
                     residente.DNI = (String)collection["Residente"];
 
@@ -58,7 +64,9 @@ namespace Condominios.Controllers
                     viviendaACrear.Tipo = (String)collection["Tipo"];
                     viviendaACrear.Residente = residente;
 
-                    RegistrarService.RegistrarVivienda(viviendaACrear);
+                    //RegistrarService.RegistrarVivienda(viviendaACrear);
+                    SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+                    res.CrearVivienda(viviendaACrear);
 
                     return RedirectToAction("Index");
                 }
@@ -76,7 +84,9 @@ namespace Condominios.Controllers
         // GET: /Vivienda/Edit/5
         public ActionResult Edit(int NumVivienda)
         {
-            Vivienda modelo = RegistrarService.ObtenerVivienda(NumVivienda);
+            //Vivienda modelo = RegistrarService.ObtenerVivienda(NumVivienda);
+            SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+            DVivienda modelo = res.ObtenerVivienda(NumVivienda);
 
             return View(modelo); //La vista se llama Details.aspx
         }
@@ -88,13 +98,17 @@ namespace Condominios.Controllers
             try
             {
                 // TODO: Add update logic here
-                Vivienda viviendaAModificar = RegistrarService.ObtenerVivienda(NumVivienda);
+                //Vivienda viviendaAModificar = RegistrarService.ObtenerVivienda(NumVivienda);
+                SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+                DVivienda viviendaAModificar = res.ObtenerVivienda(NumVivienda);
 
                 viviendaAModificar.Ubicacion = (String)collection["Ubicacion"];
                 viviendaAModificar.Metraje = int.Parse(collection["Numero"]);
                 viviendaAModificar.Numero = int.Parse(collection["Numero"]);
 
-                RegistrarService.ModificarVivienda(viviendaAModificar);
+                //RegistrarService.ModificarVivienda(viviendaAModificar);
+                res.ModificarVivienda(viviendaAModificar);
+
 
                 return RedirectToAction("Index");
             }
@@ -107,7 +121,9 @@ namespace Condominios.Controllers
         // GET: /Vivienda/Delete/5
         public ActionResult Delete(int NumVivienda)
         {
-            Vivienda modelo = RegistrarService.ObtenerVivienda(NumVivienda);
+            //Vivienda modelo = RegistrarService.ObtenerVivienda(NumVivienda);
+            SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+            DVivienda modelo = res.ObtenerVivienda(NumVivienda);
 
             return View(modelo);
         }
@@ -119,8 +135,11 @@ namespace Condominios.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Vivienda viviendaAEliminar = RegistrarService.ObtenerVivienda(NumVivienda);
-                RegistrarService.EliminarVivienda(viviendaAEliminar);
+                //Vivienda viviendaAEliminar = RegistrarService.ObtenerVivienda(NumVivienda);
+                //RegistrarService.EliminarVivienda(viviendaAEliminar);
+                SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
+                DVivienda viviendaAEliminar = res.ObtenerVivienda(NumVivienda);
+                res.EliminarVivienda(viviendaAEliminar);
 
                 return RedirectToAction("Index");
             }

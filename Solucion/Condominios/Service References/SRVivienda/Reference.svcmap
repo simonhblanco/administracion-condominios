@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="48615a32-59d4-4338-82a4-e120b5f7f976" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20122/Viviendas.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Viviendas.xsd" MetadataType="Schema" ID="c9520b44-669e-45bb-93b9-6a55a4f756bc" SourceId="1" SourceUrl="http://localhost:20122/Viviendas.svc?xsd=xsd2" />
+    <MetadataFile FileName="Viviendas.disco" MetadataType="Disco" ID="6f256373-7ec9-490c-9456-eb18819922c6" SourceId="1" SourceUrl="http://localhost:20122/Viviendas.svc?disco" />
+    <MetadataFile FileName="Viviendas1.xsd" MetadataType="Schema" ID="a93d2d29-b8d9-49a1-a146-9e23f23f660e" SourceId="1" SourceUrl="http://localhost:20122/Viviendas.svc?xsd=xsd0" />
+    <MetadataFile FileName="Viviendas2.xsd" MetadataType="Schema" ID="2bf32271-2b72-441c-ad2b-ccb3db7eed08" SourceId="1" SourceUrl="http://localhost:20122/Viviendas.svc?xsd=xsd1" />
+    <MetadataFile FileName="Viviendas.wsdl" MetadataType="Wsdl" ID="33108e7b-dcdc-499f-9da8-193124fde98b" SourceId="1" SourceUrl="http://localhost:20122/Viviendas.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

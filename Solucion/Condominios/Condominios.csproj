@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SRVivienda\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <None Include="Pruebas\TestReservaDAO.cs" />
     <Compile Include="Pruebas\Test03CuotaDAO.cs" />
     <None Include="Pruebas\TestAreaComunDAO.cs" />
@@ -165,6 +170,19 @@
     <None Include="Service References\SRResidente\Residentes2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\SRVivienda\Condominios.SRVivienda.DVivienda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas.wsdl" />
+    <None Include="Service References\SRVivienda\Viviendas.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dominio\Residente.hbm.xml">
@@ -192,6 +210,13 @@
     <None Include="Service References\SRCuota\configuration91.svcinfo" />
     <None Include="Service References\SRCuota\configuration.svcinfo" />
     <None Include="Service References\SRCuota\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SRVivienda\Viviendas.disco" />
+    <None Include="Service References\SRVivienda\configuration91.svcinfo" />
+    <None Include="Service References\SRVivienda\configuration.svcinfo" />
+    <None Include="Service References\SRVivienda\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -254,6 +279,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRCuota\" />
     <WCFMetadataStorage Include="Service References\SRResidente\" />
+    <WCFMetadataStorage Include="Service References\SRVivienda\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
