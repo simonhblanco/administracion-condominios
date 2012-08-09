@@ -37,7 +37,7 @@ namespace RESTTest
                 Assert.AreEqual("jesus", residenteCreado.ApellidoMaterno);
                 Assert.AreEqual("admin", residenteCreado.Clave);
                 Assert.AreEqual("magda@gmail.com", residenteCreado.Correo);
-                Assert.AreEqual("666", residenteCreado.DNI);
+                Assert.AreEqual("667", residenteCreado.DNI);
                 Assert.AreEqual("25", residenteCreado.Edad);
                 Assert.AreEqual("magda", residenteCreado.Nombres);
                 Assert.AreEqual("R", residenteCreado.Tipo);
