@@ -46,7 +46,7 @@ namespace SOAPService
             {
                 DNI = dresidente.DNI,
                 Nombres = dresidente.Nombres,
-                ApellidoPaterno = dresidente.ApellidoMaterno,
+                ApellidoPaterno = dresidente.ApellidoPaterno,
                 ApellidoMaterno = dresidente.ApellidoMaterno,
                 Edad = dresidente.Edad,
                 Correo = dresidente.Correo,

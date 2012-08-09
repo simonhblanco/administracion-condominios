@@ -33,7 +33,7 @@ namespace SOAPService.Persistencia
                 }
             }
 
-            cuotaCreado = Obtener(cuotaACrear.IdCuota);
+           cuotaCreado = Obtener(cuotaACrear.IdCuota);
 
             return cuotaCreado;
         }
@@ -90,7 +90,9 @@ namespace SOAPService.Persistencia
                     com.Parameters.Add(new SqlParameter("@estado", cuotaAModificar.Estado));
                 }
             }
+
             cuotaModificado = Obtener(cuotaAModificar.IdCuota);
+
             return cuotaModificado;
         }
 
