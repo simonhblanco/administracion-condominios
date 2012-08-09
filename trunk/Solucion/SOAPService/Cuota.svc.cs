@@ -59,16 +59,16 @@ namespace SOAPService
         public DCuota ModificarCuota(DCuota dcuota)
         {
             DVivienda viviendaExistente = ViviendaDAO.Obtener(dcuota.Vivienda.NumVivienda);
-            DCuota cuotaAModificar = new DCuota()
-            {
-                IdCuota = dcuota.IdCuota,
-                Mes = dcuota.Mes,
-                Anio = dcuota.Anio,
-                Importe = dcuota.Importe,
-                FechaVencimiento = dcuota.FechaVencimiento,
-                Vivienda = viviendaExistente,
-                Estado = dcuota.Estado
-            };
+            DCuota cuotaAModificar = new DCuota();
+
+            cuotaAModificar.IdCuota = dcuota.IdCuota;
+            cuotaAModificar.Mes = dcuota.Mes;
+            cuotaAModificar.Anio = dcuota.Anio;
+            cuotaAModificar.Importe = dcuota.Importe;
+            cuotaAModificar.FechaVencimiento = dcuota.FechaVencimiento;
+            cuotaAModificar.Vivienda = viviendaExistente;
+            cuotaAModificar.Estado = dcuota.Estado;
+            
             return CuotaDAO.Modificar(cuotaAModificar);
         }
 
