@@ -24,10 +24,24 @@ namespace SOAPService
             }
         }
 
+        private ResidenteDAO residenteDAO = null;
+
+        private ResidenteDAO ResidenteDAO
+        {
+            get
+            {
+                if (residenteDAO == null)
+                    residenteDAO = new ResidenteDAO();
+                return residenteDAO;
+            }
+        }
+
         #region Miembros de IViviendas
 
         public DVivienda CrearVivienda(DVivienda dvivienda)
         {
+            DResidente residenteExistente = ResidenteDAO.Obtener(dvivienda.Residente.DNI);
+
             DVivienda viviendaACrear = new DVivienda();
 
             viviendaACrear.NumVivienda = dvivienda.NumVivienda;
@@ -35,7 +49,7 @@ namespace SOAPService
             viviendaACrear.Numero = dvivienda.Numero;
             viviendaACrear.Metraje = dvivienda.Metraje;
             viviendaACrear.Tipo = dvivienda.Tipo;
-            viviendaACrear.Residente = dvivienda.Residente;
+            viviendaACrear.Residente = residenteExistente;
 
             return ViviendaDAO.Crear(viviendaACrear);
         }
@@ -47,6 +61,8 @@ namespace SOAPService
 
         public DVivienda ModificarVivienda(DVivienda dvivienda)
         {
+            DResidente residenteExistente = ResidenteDAO.Obtener(dvivienda.Residente.DNI);
+
             DVivienda viviendaAModificar = new DVivienda();
             
             viviendaAModificar.NumVivienda = dvivienda.NumVivienda;
@@ -54,23 +70,15 @@ namespace SOAPService
             viviendaAModificar.Numero = dvivienda.Numero;
             viviendaAModificar.Metraje = dvivienda.Metraje;
             viviendaAModificar.Tipo = dvivienda.Tipo;
-            viviendaAModificar.Residente = dvivienda.Residente;
+            viviendaAModificar.Residente = residenteExistente;
 
             return ViviendaDAO.Modificar(viviendaAModificar);
         }
 
         public void EliminarVivienda(DVivienda dvivienda)
         {
-            //DVivienda viviendaAEliminar = new DVivienda()
-            //{
-            //    NumVivienda = dvivienda.NumVivienda,
-            //    Ubicacion = dvivienda.Ubicacion,
-            //    Numero = dvivienda.Numero,
-            //   Metraje = dvivienda.Metraje,
-            //    Tipo = dvivienda.Tipo,
-            //    Residente = dvivienda.Residente
-            //};
-            ViviendaDAO.Eliminar(dvivienda);
+            DVivienda viviendaExistente = ViviendaDAO.Obtener(dvivienda.NumVivienda);
+            ViviendaDAO.Eliminar(viviendaExistente);
         }
 
         public ICollection<DVivienda> ListarTodosLasViviendas()

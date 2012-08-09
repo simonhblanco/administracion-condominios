@@ -57,7 +57,7 @@ namespace Condominios.Controllers
 
                     residente.DNI = (String)collection["Residente"];
 
-                    //viviendaACrear.NumVivienda = int.Parse(collection["NumVivienda"]);
+                    viviendaACrear.NumVivienda = int.Parse(collection["NumVivienda"]);
                     viviendaACrear.Ubicacion = (String)collection["Ubicacion"];
                     viviendaACrear.Numero = int.Parse(collection["Numero"]);
                     viviendaACrear.Metraje = int.Parse(collection["Metraje"]);
@@ -101,10 +101,15 @@ namespace Condominios.Controllers
                 //Vivienda viviendaAModificar = RegistrarService.ObtenerVivienda(NumVivienda);
                 SRVivienda.ViviendasClient res = new SRVivienda.ViviendasClient();
                 DVivienda viviendaAModificar = res.ObtenerVivienda(NumVivienda);
+                DResidente residente = new DResidente();
+
+                residente.DNI = (String)collection["Residente.DNI"];
 
                 viviendaAModificar.Ubicacion = (String)collection["Ubicacion"];
-                viviendaAModificar.Metraje = int.Parse(collection["Numero"]);
                 viviendaAModificar.Numero = int.Parse(collection["Numero"]);
+                viviendaAModificar.Metraje = int.Parse(collection["Numero"]);
+                viviendaAModificar.Tipo = (String)collection["Tipo"];
+                viviendaAModificar.Residente = residente;
 
                 //RegistrarService.ModificarVivienda(viviendaAModificar);
                 res.ModificarVivienda(viviendaAModificar);
