@@ -62,7 +62,7 @@ namespace Condominios.Controllers
                     cuotaACrear.Vivienda = vivienda;
                     cuotaACrear.Mes = (String)collection["Mes"];
                     cuotaACrear.Anio = (String)collection["Anio"];
-                    cuotaACrear.Importe = double.Parse(collection["Importe"]);
+                    cuotaACrear.Importe = Decimal.Parse(collection["Importe"]);
                     cuotaACrear.FechaVencimiento = DateTime.Parse(collection["FechaVencimiento"]);
                     cuotaACrear.Estado = (String)collection["Estado"];
 
@@ -103,12 +103,18 @@ namespace Condominios.Controllers
                 // TODO: Add update logic here
                 //Cuota cuotaAModificar = TransaccionService.MostrarCuota(IdCuota);
                 SRCuota.CuotaClient res = new SRCuota.CuotaClient();
+
                 DCuota cuotaAModificar = res.ObtenerCuota(IdCuota);
 
-                cuotaAModificar.Anio = (String)collection["Anio"];
+                DVivienda vivienda = new DVivienda();
+
+                vivienda.NumVivienda = int.Parse(collection["Vivienda.NumVivienda"]);
+
                 cuotaAModificar.Mes = (String)collection["Mes"];
-                cuotaAModificar.Importe = int.Parse(collection["Importe"]);
+                cuotaAModificar.Anio = (String)collection["Anio"];
+                cuotaAModificar.Importe = Decimal.Parse(collection["Importe"]);
                 cuotaAModificar.FechaVencimiento = DateTime.Parse(collection["FechaVencimiento"]);
+                cuotaAModificar.Estado = (String)collection["Estado"];
 
                 //TransaccionService.ModificarCuota(cuotaAModificar);
                 res.ModificarCuota(cuotaAModificar);

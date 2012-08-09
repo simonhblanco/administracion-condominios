@@ -43,7 +43,7 @@ namespace SOAPService
                 IdCuota = dcuota.IdCuota,
                 Mes = dcuota.Mes,
                 Anio = dcuota.Anio,
-                Importe = dcuota.IdCuota,
+                Importe = dcuota.Importe,
                 FechaVencimiento = dcuota.FechaVencimiento,
                 Vivienda = viviendaExistente,
                 Estado = dcuota.Estado
@@ -64,7 +64,7 @@ namespace SOAPService
                 IdCuota = dcuota.IdCuota,
                 Mes = dcuota.Mes,
                 Anio = dcuota.Anio,
-                Importe = dcuota.IdCuota,
+                Importe = dcuota.Importe,
                 FechaVencimiento = dcuota.FechaVencimiento,
                 Vivienda = viviendaExistente,
                 Estado = dcuota.Estado

@@ -6,7 +6,7 @@
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaVencimiento" type="xs:dateTime" />
       <xs:element minOccurs="0" name="IdCuota" type="xs:int" />
-      <xs:element minOccurs="0" name="Importe" type="xs:double" />
+      <xs:element minOccurs="0" name="Importe" type="xs:decimal" />
       <xs:element minOccurs="0" name="Mes" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Vivienda" nillable="true" type="tns:DVivienda" />
     </xs:sequence>
