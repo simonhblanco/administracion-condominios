@@ -12,7 +12,7 @@ namespace RESTService
     [ServiceContract]
     public interface IResidente
     {
-
+        //
         [OperationContract]
         [WebInvoke(Method="POST", UriTemplate="Residente", ResponseFormat=WebMessageFormat.Json)]
         DResidente CrearResidente(DResidente residenteACrear);
