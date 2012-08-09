@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TransaccionesPagos" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:20122/TransaccionesPagos.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:20122/TransaccionesPagos.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:20122/TransaccionesPagos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOAPService.Dominio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITransaccionesPagos_CrearTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_CrearTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_ObtenerTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_ObtenerTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_ModificarTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_ModificarTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_EliminarTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="ITransaccionesPagos_EliminarTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITransaccionesPagos">
+    <wsdl:operation name="CrearTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransaccionesPagos/CrearTransaccion" message="tns:ITransaccionesPagos_CrearTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransaccionesPagos/CrearTransaccionResponse" message="tns:ITransaccionesPagos_CrearTransaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransaccionesPagos/ObtenerTransaccion" message="tns:ITransaccionesPagos_ObtenerTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransaccionesPagos/ObtenerTransaccionResponse" message="tns:ITransaccionesPagos_ObtenerTransaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransaccionesPagos/ModificarTransaccion" message="tns:ITransaccionesPagos_ModificarTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransaccionesPagos/ModificarTransaccionResponse" message="tns:ITransaccionesPagos_ModificarTransaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransaccionesPagos/EliminarTransaccion" message="tns:ITransaccionesPagos_EliminarTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransaccionesPagos/EliminarTransaccionResponse" message="tns:ITransaccionesPagos_EliminarTransaccion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITransaccionesPagos" type="tns:ITransaccionesPagos">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearTransaccion">
+      <soap:operation soapAction="http://tempuri.org/ITransaccionesPagos/CrearTransaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTransaccion">
+      <soap:operation soapAction="http://tempuri.org/ITransaccionesPagos/ObtenerTransaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTransaccion">
+      <soap:operation soapAction="http://tempuri.org/ITransaccionesPagos/ModificarTransaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTransaccion">
+      <soap:operation soapAction="http://tempuri.org/ITransaccionesPagos/EliminarTransaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransaccionesPagos">
+    <wsdl:port name="BasicHttpBinding_ITransaccionesPagos" binding="tns:BasicHttpBinding_ITransaccionesPagos">
+      <soap:address location="http://localhost:20122/TransaccionesPagos.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

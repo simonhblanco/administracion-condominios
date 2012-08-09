@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="Cuota.svc" />
     <Content Include="Residentes.svc" />
+    <Content Include="TransaccionesPagos.svc" />
     <Content Include="Viviendas.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -85,15 +86,20 @@
     <Compile Include="Dominio\DVivienda.cs" />
     <Compile Include="ICuota.cs" />
     <Compile Include="IResidentes.cs" />
+    <Compile Include="ITransaccionesPagos.cs" />
     <Compile Include="IViviendas.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\CuotaDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\ResidenteDAO.cs" />
+    <Compile Include="Persistencia\TransaccionPagoDAO.cs" />
     <Compile Include="Persistencia\ViviendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Residentes.svc.cs">
       <DependentUpon>Residentes.svc</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesPagos.svc.cs">
+      <DependentUpon>TransaccionesPagos.svc</DependentUpon>
     </Compile>
     <Compile Include="Viviendas.svc.cs">
       <DependentUpon>Viviendas.svc</DependentUpon>

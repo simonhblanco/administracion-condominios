@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2236486f-c32d-430f-b2a1-c9350dab18f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20122/TransaccionesPagos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TransaccionesPagos.xsd" MetadataType="Schema" ID="b7171960-e88c-4d88-a0b4-67b8ed31c7cc" SourceId="1" SourceUrl="http://localhost:20122/TransaccionesPagos.svc?xsd=xsd1" />
+    <MetadataFile FileName="TransaccionesPagos.disco" MetadataType="Disco" ID="fce8c64a-e886-4115-ab71-078d090021fd" SourceId="1" SourceUrl="http://localhost:20122/TransaccionesPagos.svc?disco" />
+    <MetadataFile FileName="TransaccionesPagos1.xsd" MetadataType="Schema" ID="a840b0c6-cc90-43a2-8711-633046dc215c" SourceId="1" SourceUrl="http://localhost:20122/TransaccionesPagos.svc?xsd=xsd0" />
+    <MetadataFile FileName="TransaccionesPagos2.xsd" MetadataType="Schema" ID="a89f03e3-93ec-4edb-8bb7-eef9d5819f11" SourceId="1" SourceUrl="http://localhost:20122/TransaccionesPagos.svc?xsd=xsd2" />
+    <MetadataFile FileName="TransaccionesPagos.wsdl" MetadataType="Wsdl" ID="d73700a9-d545-4e9e-9a8d-55f09d7f9d6d" SourceId="1" SourceUrl="http://localhost:20122/TransaccionesPagos.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
