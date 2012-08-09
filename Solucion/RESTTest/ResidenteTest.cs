@@ -19,10 +19,9 @@ namespace RESTTest
             //string postdata = "{\"dni\":\"666\",\"nombres\":\"Cristos\"}"; //JSON
             try
             {
-               string postdata = "{\"ApellidoMaterno\":\"cortez\",\"ApellidoPaterno\":\"jesus\",\"Clave\":\"admin\",\"Correo\":\"magda@.com\",\"DNI\":\"666\",\"Edad\":\"25\",\"Nombres\":\"magda\",\"Tipo\":\"R\"}";
+               string postdata = "{\"ApellidoMaterno\":\"cortez\",\"ApellidoPaterno\":\"jesus\",\"Clave\":\"admin\",\"Correo\":\"magda@.com\",\"DNI\":\"888\",\"Edad\":\"25\",\"Nombres\":\"magda\",\"Tipo\":\"R\"}";
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
-                HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:1424/Residente.svc/Residente");
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1424/Residente.svc/Residente");
                 req.Method = "POST";
                 req.ContentLength = data.Length;
                 req.ContentType = "application/json";
@@ -37,14 +36,14 @@ namespace RESTTest
                 Assert.AreEqual("jesus", residenteCreado.ApellidoMaterno);
                 Assert.AreEqual("admin", residenteCreado.Clave);
                 Assert.AreEqual("magda@gmail.com", residenteCreado.Correo);
-                Assert.AreEqual("667", residenteCreado.DNI);
+                Assert.AreEqual("888", residenteCreado.DNI);
                 Assert.AreEqual("25", residenteCreado.Edad);
                 Assert.AreEqual("magda", residenteCreado.Nombres);
                 Assert.AreEqual("R", residenteCreado.Tipo);
             }
             catch (Exception)
             {
-                throw;
+                //throw;
             }
             }
          }
