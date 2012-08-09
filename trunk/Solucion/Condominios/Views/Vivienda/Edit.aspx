@@ -16,13 +16,13 @@
         <fieldset>
             <legend>Campos</legend>
             
-            <%-- <div class="editor-label">
+             <div class="editor-label">
                 <%: Html.LabelFor(model => model.NumVivienda) %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.NumVivienda) %>
                 <%: Html.ValidationMessageFor(model => model.NumVivienda) %>
-            </div>--%>
+            </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Ubicacion) %>
@@ -57,7 +57,7 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.Residente) %>
+                <%: Html.LabelFor(model => model.Residente.DNI) %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.Residente.DNI)%>

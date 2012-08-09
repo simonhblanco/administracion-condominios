@@ -58,12 +58,14 @@ namespace SOAPServiceTest
 
             SRVivienda.DVivienda viviendaOriginal = viviendasWS.ObtenerVivienda(vivienda.NumVivienda);
 
-            vivienda.Ubicacion = "Zarate";
+            //vivienda.Ubicacion = "Zarate";
+            vivienda.Residente.DNI = "40717628";
 
             SRVivienda.DVivienda viviendaModificada = viviendasWS.ModificarVivienda(vivienda);
 
             Assert.IsNotNull(viviendaModificada);
-            Assert.AreNotEqual(viviendaOriginal.Ubicacion, viviendaModificada.Ubicacion);
+            //Assert.AreNotEqual(viviendaOriginal.Ubicacion, viviendaModificada.Ubicacion);
+            Assert.AreNotEqual(viviendaOriginal.Residente.DNI, viviendaModificada.Residente.DNI);
         }
 
         [TestMethod]
