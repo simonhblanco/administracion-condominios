@@ -39,12 +39,12 @@ namespace SOAPServiceTest
         {
             vivienda = new SRVivienda.DVivienda();
 
-            vivienda.NumVivienda = 1;
+            vivienda.NumVivienda = 5;
 
             vivienda = viviendasWS.ObtenerVivienda(vivienda.NumVivienda);
 
             Assert.IsNotNull(vivienda);
-            Assert.AreEqual(vivienda.NumVivienda, 1);
+            Assert.AreEqual(vivienda.NumVivienda, 5);
             Assert.IsNotNull(vivienda.Tipo);
         }
 
@@ -53,7 +53,7 @@ namespace SOAPServiceTest
         {
             vivienda = new SRVivienda.DVivienda();
 
-            vivienda.NumVivienda = 2;
+            vivienda.NumVivienda = 5;
             vivienda = viviendasWS.ObtenerVivienda(vivienda.NumVivienda);
 
             SRVivienda.DVivienda viviendaOriginal = viviendasWS.ObtenerVivienda(vivienda.NumVivienda);

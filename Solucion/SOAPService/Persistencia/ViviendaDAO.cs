@@ -69,7 +69,7 @@ namespace SOAPService.Persistencia
         {
             DVivienda viviendaModificada = null;
 
-            string sentencia = "update vivienda set ubicacion = @ubicacion, numero = @numero, metraje = @metraje, tipo =@tipo, dni=@dni where numvivienda=@numvivienda";
+            string sentencia = "update vivienda set ubicacion=@ubicacion, numero=@numero, metraje=@metraje, tipo=@tipo, dni=@dni where numvivienda=@numvivienda";
             
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
@@ -78,10 +78,11 @@ namespace SOAPService.Persistencia
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
                     comando.Parameters.Add(new SqlParameter("@ubicacion", viviendaAModificar.Ubicacion));
-                    comando.Parameters.Add(new SqlParameter("numero", viviendaAModificar.Numero));
+                    comando.Parameters.Add(new SqlParameter("@numero", viviendaAModificar.Numero));
                     comando.Parameters.Add(new SqlParameter("@metraje", viviendaAModificar.Metraje));
                     comando.Parameters.Add(new SqlParameter("@tipo", viviendaAModificar.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@dni", viviendaAModificar.Residente));
+                    comando.Parameters.Add(new SqlParameter("@dni", viviendaAModificar.Residente.DNI));
+                    comando.ExecuteNonQuery();
                 }
             }
 
