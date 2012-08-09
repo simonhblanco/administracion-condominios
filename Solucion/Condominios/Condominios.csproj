@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SRTransaccionPago\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SRVivienda\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,6 +173,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SRResidente\Residentes2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRTransaccionPago\Condominios.SRTransaccionPago.DTransaccionPago.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SRTransaccionPago\TransaccionesPagos.wsdl" />
+    <None Include="Service References\SRTransaccionPago\TransaccionesPagos.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRTransaccionPago\TransaccionesPagos1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SRTransaccionPago\TransaccionesPagos2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SRVivienda\Condominios.SRVivienda.DVivienda.datasource">
@@ -217,6 +235,13 @@
     <None Include="Service References\SRVivienda\configuration91.svcinfo" />
     <None Include="Service References\SRVivienda\configuration.svcinfo" />
     <None Include="Service References\SRVivienda\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SRTransaccionPago\TransaccionesPagos.disco" />
+    <None Include="Service References\SRTransaccionPago\configuration91.svcinfo" />
+    <None Include="Service References\SRTransaccionPago\configuration.svcinfo" />
+    <None Include="Service References\SRTransaccionPago\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -279,6 +304,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SRCuota\" />
     <WCFMetadataStorage Include="Service References\SRResidente\" />
+    <WCFMetadataStorage Include="Service References\SRTransaccionPago\" />
     <WCFMetadataStorage Include="Service References\SRVivienda\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
