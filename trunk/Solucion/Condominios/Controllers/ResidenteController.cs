@@ -102,6 +102,10 @@ namespace Condominios.Controllers
                 residenteAModificar.Nombres = (String)collection["Nombres"];
                 residenteAModificar.ApellidoPaterno = (String)collection["ApellidoPaterno"];
                 residenteAModificar.ApellidoMaterno = (String)collection["ApellidoMaterno"];
+                residenteAModificar.Edad = int.Parse(collection["Edad"]);
+                residenteAModificar.Correo = (String)collection["Correo"];
+                residenteAModificar.Clave = (String)collection["Clave"];
+                residenteAModificar.Tipo = (String)collection["Tipo"];
 
                 //RegistrarService.ModificarResidente(residenteAModificar);
                 res.ModificarResidente(residenteAModificar);
@@ -134,7 +138,7 @@ namespace Condominios.Controllers
                 //RegistrarService.EliminarResidente(residenteAEliminar);
                 SRResidente.ResidentesClient res = new SRResidente.ResidentesClient();
                 DResidente residenteAEliminar = res.ObtenerResidente(DNI);
-                res.EliminarResidente(residenteAEliminar);
+                res.EliminarResidente(residenteAEliminar.DNI);
  
                 return RedirectToAction("Index");
             }

@@ -46,14 +46,14 @@
   <xs:element name="EliminarResidente">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SOAPService.Dominio" minOccurs="0" name="dresidente" nillable="true" type="q6:DResidente" />
+        <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarResidenteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SOAPService.Dominio" minOccurs="0" name="EliminarResidenteResult" nillable="true" type="q7:DResidente" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SOAPService.Dominio" minOccurs="0" name="EliminarResidenteResult" nillable="true" type="q6:DResidente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,7 +65,7 @@
   <xs:element name="ListarTodosLosResidentesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SOAPService.Dominio" minOccurs="0" name="ListarTodosLosResidentesResult" nillable="true" type="q8:ArrayOfDResidente" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SOAPService.Dominio" minOccurs="0" name="ListarTodosLosResidentesResult" nillable="true" type="q7:ArrayOfDResidente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

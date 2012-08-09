@@ -11,35 +11,44 @@ namespace SOAPService.Persistencia
 {
     public class ResidenteDAO
     {
-        public DResidente Crear(DResidente residente)
+        public DResidente Crear(DResidente residenteACrear)
         {
-            //int nuevoCodigo = ObtenerNuevoCodigo();
+            DResidente residenteCreado = null;
+
             string sentencia = "INSERT INTO residente (dni, apellidopaterno, apellidomaterno, nombres, edad, correo, clave, tipo) VALUES (@dni,@apellidopaterno, @apellidomaterno, @nombres, @edad, @correo, @clave, @tipo)";
+
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@dni", residente.DNI));
-                    comando.Parameters.Add(new SqlParameter("@apellidopaterno", residente.ApellidoPaterno));
-                    comando.Parameters.Add(new SqlParameter("@apellidomaterno", residente.ApellidoMaterno));
-                    comando.Parameters.Add(new SqlParameter("@nombres", residente.Nombres));
-                    comando.Parameters.Add(new SqlParameter("@edad", residente.Edad));
-                    comando.Parameters.Add(new SqlParameter("@correo", residente.Correo));
-                    comando.Parameters.Add(new SqlParameter("@clave", residente.Clave));
-                    comando.Parameters.Add(new SqlParameter("@tipo", residente.Tipo));
+                    comando.Parameters.Add(new SqlParameter("@dni", residenteACrear.DNI));
+                    comando.Parameters.Add(new SqlParameter("@apellidopaterno", residenteACrear.ApellidoPaterno));
+                    comando.Parameters.Add(new SqlParameter("@apellidomaterno", residenteACrear.ApellidoMaterno));
+                    comando.Parameters.Add(new SqlParameter("@nombres", residenteACrear.Nombres));
+                    comando.Parameters.Add(new SqlParameter("@edad", residenteACrear.Edad));
+                    comando.Parameters.Add(new SqlParameter("@correo", residenteACrear.Correo));
+                    comando.Parameters.Add(new SqlParameter("@clave", residenteACrear.Clave));
+                    comando.Parameters.Add(new SqlParameter("@tipo", residenteACrear.Tipo));
                     comando.ExecuteNonQuery();
                 }
             }
-            return Obtener(residente.DNI);
+
+            residenteCreado = Obtener(residenteACrear.DNI);
+
+            return Obtener(residenteACrear.DNI);
         }
+
         public DResidente Obtener(string dni)
         {
             DResidente residenteExistente = null;
+
             string sentencia = "SELECT * FROM residente WHERE dni=@dni";
+
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
+
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
                     comando.Parameters.Add(new SqlParameter("@dni", dni));
@@ -55,33 +64,38 @@ namespace SOAPService.Persistencia
                         residenteExistente.Correo = (string)resultado["correo"];
                         residenteExistente.Clave = (string)resultado["clave"];
                         residenteExistente.Tipo = (string)resultado["tipo"];
-                        //Se agregó campos para que se visualice en el WCF ya que no salia campos de la tabla RESIDENTE.
                     }
                 }
             }
+
             return residenteExistente;
         }
-        public DResidente Modificar(DResidente residente)
+
+        public DResidente Modificar(DResidente residenteAModificar)
         {
-            //int nuevoCodigo = ObtenerNuevoCodigo();
+            DResidente residenteModificado = null;
+
             string sentencia = "update residente set apellidopaterno = @apellidopaterno, apellidomaterno =  @apellidomaterno, clave = @clave, correo = @correo, edad = @edad, nombres = @nombres, tipo = @tipo where dni = @dni";
             using (SqlConnection conexion = new SqlConnection(ConexionUtil.ObtenerCadena()))
             {
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@apellidopaterno", residente.ApellidoPaterno));
-                    comando.Parameters.Add(new SqlParameter("@apellidomaterno", residente.ApellidoMaterno));
-                    comando.Parameters.Add(new SqlParameter("@nombres", residente.Nombres));
-                    comando.Parameters.Add(new SqlParameter("@clave", residente.Clave));
-                    comando.Parameters.Add(new SqlParameter("@correo", residente.Correo));
-                    comando.Parameters.Add(new SqlParameter("@edad", residente.Edad));
-                    comando.Parameters.Add(new SqlParameter("@tipo", residente.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@dni", residente.DNI));
+                    comando.Parameters.Add(new SqlParameter("@apellidopaterno", residenteAModificar.ApellidoPaterno));
+                    comando.Parameters.Add(new SqlParameter("@apellidomaterno", residenteAModificar.ApellidoMaterno));
+                    comando.Parameters.Add(new SqlParameter("@nombres", residenteAModificar.Nombres));
+                    comando.Parameters.Add(new SqlParameter("@clave", residenteAModificar.Clave));
+                    comando.Parameters.Add(new SqlParameter("@correo", residenteAModificar.Correo));
+                    comando.Parameters.Add(new SqlParameter("@edad", residenteAModificar.Edad));
+                    comando.Parameters.Add(new SqlParameter("@tipo", residenteAModificar.Tipo));
+                    comando.Parameters.Add(new SqlParameter("@dni", residenteAModificar.DNI));
                     comando.ExecuteNonQuery();
                 }
             }
-            return Obtener(residente.DNI);
+
+            residenteModificado = Obtener(residenteAModificar.DNI);
+
+            return residenteModificado;
         }
         public DResidente Eliminar(string codigo)
         {
