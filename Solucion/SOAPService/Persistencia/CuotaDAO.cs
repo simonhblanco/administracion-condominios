@@ -88,6 +88,7 @@ namespace SOAPService.Persistencia
                     com.Parameters.Add(new SqlParameter("@fechavencimiento", cuotaAModificar.FechaVencimiento));
                     com.Parameters.Add(new SqlParameter("@numvivienda", cuotaAModificar.Vivienda.NumVivienda));
                     com.Parameters.Add(new SqlParameter("@estado", cuotaAModificar.Estado));
+                    com.ExecuteNonQuery();
                 }
             }
 
