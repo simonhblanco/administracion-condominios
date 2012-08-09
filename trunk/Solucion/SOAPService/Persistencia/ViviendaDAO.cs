@@ -77,6 +77,7 @@ namespace SOAPService.Persistencia
 
                 using (SqlCommand comando = new SqlCommand(sentencia, conexion))
                 {
+                    comando.Parameters.Add(new SqlParameter("@numvivienda", viviendaAModificar.NumVivienda));
                     comando.Parameters.Add(new SqlParameter("@ubicacion", viviendaAModificar.Ubicacion));
                     comando.Parameters.Add(new SqlParameter("@numero", viviendaAModificar.Numero));
                     comando.Parameters.Add(new SqlParameter("@metraje", viviendaAModificar.Metraje));
