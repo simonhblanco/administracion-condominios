@@ -58,8 +58,9 @@ namespace RESTService.Persistencia
             }
             return residenteExistente;
         }
-        //public DResidente Modificar(DResidente residente)
-        public DResidente Modificar(string strNombre, string intEdad, string strCodigo)
+        
+        //public DResidente Modificar(string strNombre, string intEdad, string strCodigo)
+        public DResidente Modificar(DResidente residente)
         {
             //int nuevoCodigo = ObtenerNuevoCodigo();
             string sentencia = "update residente set apellidopaterno = @apellidopaterno, apellidomaterno =  @apellidomaterno, clave = @clave, correo = @correo, edad = @edad, nombres = @nombres, tipo = @tipo where dni = @dni";
@@ -70,17 +71,17 @@ namespace RESTService.Persistencia
                 {
                     //comando.Parameters.Add(new SqlParameter("@apellidopaterno", residente.ApellidoPaterno));
                     //comando.Parameters.Add(new SqlParameter("@apellidomaterno", residente.ApellidoMaterno));
-                    comando.Parameters.Add(new SqlParameter("@nombres", strNombre));
+                    comando.Parameters.Add(new SqlParameter("@nombres", residente.Nombres ));
                     //comando.Parameters.Add(new SqlParameter("@clave", residente.Clave));
                     //comando.Parameters.Add(new SqlParameter("@correo", residente.Correo));
-                    comando.Parameters.Add(new SqlParameter("@edad", intEdad));
+                    comando.Parameters.Add(new SqlParameter("@edad", residente.Edad));
                     //comando.Parameters.Add(new SqlParameter("@tipo", residente.Tipo));
-                    comando.Parameters.Add(new SqlParameter("@dni", strCodigo));
+                    comando.Parameters.Add(new SqlParameter("@dni", residente.DNI));
                     comando.ExecuteNonQuery();
                 }
             }
             //return Obtener(residente.DNI);
-            return Obtener(strCodigo);
+            return Obtener(residente.DNI);
         }
         public DResidente Eliminar(string codigo)
         {
