@@ -8,8 +8,6 @@ namespace RESTTest
 {
      public class Residente
     {
-
-       
              public string ApellidoMaterno { get; set; }
              public string ApellidoPaterno { get; set; }
              public object Clave { get; set; }
@@ -21,14 +19,7 @@ namespace RESTTest
          }
          }
 
-        //private String _DNI;
-        //private String _Nombres;
-        //private String _ApellidoPaterno;
-        //private String _ApellidoMaterno;
-        //private int _Edad;
-        //private String _Correo;
-        //private String _Clave;
-        //private String _Tipo;
+        
 
         ////[Required(ErrorMessage = "El DNI es Obligatorio")]
         //[StringLength(8, ErrorMessage = "Máximo 8 caracteres")]
