@@ -20,7 +20,7 @@ namespace RESTTest
             try
             {
                 //TEST DE CREACION DE UN NUEVO RESIDENTE
-                string postdata = "{\"ApellidoMaterno\":\"Garcia\",\"ApellidoPaterno\":\"Rodriguez\",\"Clave\":\"admin\",\"Correo\":\"cristos@gmail.com\",\"DNI\":\"111\",\"Edad\":\"25\",\"Nombres\":\"Cristos\",\"Tipo\":\"R\"}";
+                string postdata = "{\"ApellidoMaterno\":\"Garcia\",\"ApellidoPaterno\":\"Rodriguez\",\"Clave\":\"admin\",\"Correo\":\"cristos@gmail.com\",\"DNI\":\"222\",\"Edad\":\"25\",\"Nombres\":\"Cristos\",\"Tipo\":\"R\"}";
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1424/Residente.svc/Residente");
                 req.Method = "POST";
@@ -37,7 +37,7 @@ namespace RESTTest
                 Assert.AreEqual("Rodriguez", residenteCreado.ApellidoMaterno);
                 Assert.AreEqual("admin", residenteCreado.Clave);
                 Assert.AreEqual("cristos@gmail.com", residenteCreado.Correo);
-                Assert.AreEqual("111", residenteCreado.DNI);
+                Assert.AreEqual("222", residenteCreado.DNI);
                 Assert.AreEqual("25", residenteCreado.Edad);
                 Assert.AreEqual("Cristos", residenteCreado.Nombres);
                 Assert.AreEqual("R", residenteCreado.Tipo);
