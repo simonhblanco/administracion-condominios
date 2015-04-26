@@ -1,0 +1,1 @@
+Administrar un condominio a través de un aplicación Web.
